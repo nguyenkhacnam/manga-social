@@ -8,6 +8,7 @@ import Page_chapper from "../pages/Chapper/chapper";
 import { createBrowserRouter } from "react-router-dom";
 import UserProfile from "../pages/UserProfile";
 import ContactUs from "../pages/ContactUs";
+import Login from "../pages/Login/Login.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Page_login />,
+  },
+  {
+    path: "/login1",
+    element: <Login />,
   },
   {
     path: "/register",
