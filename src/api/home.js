@@ -1,7 +1,7 @@
 import axios from "axios";
-const baseRoute = 'home'
+const baseRoute = "home";
 const backendAxios = axios.create({
-    baseURL:"http://14.225.7.221:7979"
+  baseURL: "http://14.225.7.221:7979",
 });
 
 const prodApis={
