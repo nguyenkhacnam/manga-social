@@ -6,7 +6,7 @@ const backendAxios = axios.create({
 
 const prodApis={
     index:()=>{
-        return backendAxios.get(baseRoute)
+        return backendAxios.get()
     },
     // show:(id)=>{
     //     return backendAxios.get(baseRoute +"/"+id)

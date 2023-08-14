@@ -6,6 +6,8 @@ import Page_SignIn from "../pages/Signin/Sign_in";
 import Page_Genres from "../pages/Genres/Genres";
 import Page_chapper from "../pages/Chapper/chapper";
 import { createBrowserRouter } from "react-router-dom";
+import UserProfile from "../pages/UserProfile";
+import ContactUs from "../pages/ContactUs";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -26,6 +28,14 @@ const router = createBrowserRouter([
       {
         path: "/chapper",
         element: <Page_chapper />,
+      },
+      {
+        path: "/contact-us",
+        element: <ContactUs />,
+      },
+      {
+        path: "/user-profile",
+        element: <UserProfile />,
       },
     ],
   },
