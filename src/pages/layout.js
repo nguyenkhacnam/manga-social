@@ -1,9 +1,27 @@
 import { useState } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, json } from "react-router-dom";
 export default function Layout({ home }) {
     const [isHovered, setIsHovered] = useState(false);
     const [isServerHovered, setIsServerHovered] = useState(false);
 
+    //handle search
+    const [input, setInput] = useState("")
+    console.log(input)
+    const fetchData = (value) => {
+        fetch('http://14.225.7.221:7979/')
+            .then((response) => response.json())
+            .then(res => {
+                console.log(res[1].data)
+                // const results = data.filter((data) => {
+                //     return data && data.title_manga && data.title_manga.toLowerCase().includes(value)
+                // })
+                // console.log(results)
+            })
+    }
+    const handleChange = (value) => {
+        setInput(value)
+        fetchData()
+    }
     const handleMouseEnter = () => {
         setIsHovered(true);
     };
@@ -31,24 +49,26 @@ export default function Layout({ home }) {
                     </div>
                 </Link>
                 <div className="menu-header">
-                    <div
-                        className="comic"
-                        onMouseEnter={handleMouseEnter}
-                        onMouseLeave={handleMouseLeave}
-                    >
-                        <p>Comic</p>
-                        <img
-                            className="arrow-img"
-                            src={
-                                isHovered
-                                    ? "/images/Polygon cam.svg"
-                                    : "/images/Polygon 1.svg"
-                            }
-                            alt="Arrow"
-                        />
-                    </div>
+                    <Link to="/">
+                        <div
+                            className="comic"
+                            onMouseEnter={handleMouseEnter}
+                            onMouseLeave={handleMouseLeave}
+                        >
+                            <p>Comic</p>
+                            <img
+                                className="arrow-img"
+                                src={
+                                    isHovered
+                                        ? "/images/Polygon cam.svg"
+                                        : "/images/Polygon 1.svg"
+                                }
+                                alt="Arrow"
+                            />
+                        </div>
+                    </Link>
 
-                    <p>Genres</p>
+                    <Link to="/genres"><p>Genres</p></Link>
 
                     <p>Popular</p>
 
@@ -68,14 +88,16 @@ export default function Layout({ home }) {
                             alt="Arrow"
                         />
                     </div>
-                    <p className="contact">Contact us</p>
+                    <Link to="/contact-us"><p className="contact">Contact us</p></Link>
                 </div>
                 <div className="avatar_search">
                     <img src="/images/search.svg "></img>
-                    <input type="text" placeholder="Search"></input>
-                    <div className="avatar">
-                        <img src="/images/usersquare.svg"></img>
-                    </div>
+                    <input type="text" placeholder="Search..." value={input} onChange={(e) => handleChange(e.target.value)}></input>
+                    <Link to="/user-profile">
+                        <div className="avatar">
+                            <img src="/images/usersquare.svg"></img>
+                        </div>
+                    </Link>
                 </div>
             </div>
             <Outlet></Outlet>
