@@ -1,9 +1,34 @@
 import { useState } from "react";
+<<<<<<< HEAD
 import { Link, Outlet } from "react-router-dom";
+=======
+import { Link, Outlet, json } from "react-router-dom";
+>>>>>>> 78be6bdc930dc767c0e13d43a12bfdd3acd183d1
 export default function Layout({ home }) {
     const [isHovered, setIsHovered] = useState(false);
     const [isServerHovered, setIsServerHovered] = useState(false);
 
+<<<<<<< HEAD
+=======
+    //handle search
+    const [input, setInput] = useState("")
+    console.log(input)
+    const fetchData = (value) => {
+        fetch('http://14.225.7.221:7979/')
+            .then((response) => response.json())
+            .then(res => {
+                console.log(res[1].data)
+                // const results = data.filter((data) => {
+                //     return data && data.title_manga && data.title_manga.toLowerCase().includes(value)
+                // })
+                // console.log(results)
+            })
+    }
+    const handleChange = (value) => {
+        setInput(value)
+        fetchData()
+    }
+>>>>>>> 78be6bdc930dc767c0e13d43a12bfdd3acd183d1
     const handleMouseEnter = () => {
         setIsHovered(true);
     };
@@ -31,6 +56,7 @@ export default function Layout({ home }) {
                     </div>
                 </Link>
                 <div className="menu-header">
+<<<<<<< HEAD
                     <div
                         className="comic"
                         onMouseEnter={handleMouseEnter}
@@ -49,6 +75,28 @@ export default function Layout({ home }) {
                     </div>
 
                     <p>Genres</p>
+=======
+                    <Link to="/">
+                        <div
+                            className="comic"
+                            onMouseEnter={handleMouseEnter}
+                            onMouseLeave={handleMouseLeave}
+                        >
+                            <p>Comic</p>
+                            <img
+                                className="arrow-img"
+                                src={
+                                    isHovered
+                                        ? "/images/Polygon cam.svg"
+                                        : "/images/Polygon 1.svg"
+                                }
+                                alt="Arrow"
+                            />
+                        </div>
+                    </Link>
+
+                    <Link to="/genres"><p>Genres</p></Link>
+>>>>>>> 78be6bdc930dc767c0e13d43a12bfdd3acd183d1
 
                     <p>Popular</p>
 
@@ -68,6 +116,7 @@ export default function Layout({ home }) {
                             alt="Arrow"
                         />
                     </div>
+<<<<<<< HEAD
                     <p className="contact">Contact us</p>
                 </div>
                 <div className="avatar_search">
@@ -76,6 +125,18 @@ export default function Layout({ home }) {
                     <div className="avatar">
                         <img src="/images/usersquare.svg"></img>
                     </div>
+=======
+                    <Link to="/contact-us"><p className="contact">Contact us</p></Link>
+                </div>
+                <div className="avatar_search">
+                    <img src="/images/search.svg "></img>
+                    <input type="text" placeholder="Search..." value={input} onChange={(e) => handleChange(e.target.value)}></input>
+                    <Link to="/user-profile">
+                        <div className="avatar">
+                            <img src="/images/usersquare.svg"></img>
+                        </div>
+                    </Link>
+>>>>>>> 78be6bdc930dc767c0e13d43a12bfdd3acd183d1
                 </div>
             </div>
             <Outlet></Outlet>

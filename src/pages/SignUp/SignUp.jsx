@@ -24,7 +24,11 @@ const SignUp = () => {
       );
       message.success("Signup is successfully");
       console.log(response);
+<<<<<<< HEAD
       navigate("/login1");
+=======
+      navigate("/login");
+>>>>>>> 78be6bdc930dc767c0e13d43a12bfdd3acd183d1
     } catch (error) {
       message.error(`${error.response.data.message}`);
     }
