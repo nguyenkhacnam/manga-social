@@ -4,7 +4,7 @@ import NewUsers from "./newUsers";
 
 const News = () => {
     return (
-        <div>
+        <div className="flex items-start gap-[200px]">
             <NewsComics />
             <NewUsers />
         </div>

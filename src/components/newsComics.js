@@ -6,7 +6,7 @@ const NewsComics = () => {
     const newsComicsData = useFetch(6);
     const dataSlice = newsComicsData.slice(0, 7);
     return (
-        <div>
+        <div className=" grid grid-cols-2">
             {dataSlice.map((item, index) => (
                 <NewsComicCard
                     key={index}
