@@ -4,6 +4,13 @@ export default function Layout({ home }) {
     const [isHovered, setIsHovered] = useState(false);
     const [isServerHovered, setIsServerHovered] = useState(false);
 
+    //handle search
+    const [input, setInput] = useState("")
+    console.log(input)
+    const fetchData = (value) => {
+        fetch('http://14.225.7.221:7979/')
+    }
+
     const handleMouseEnter = () => {
         setIsHovered(true);
     };
@@ -74,7 +81,7 @@ export default function Layout({ home }) {
                 </div>
                 <div className="avatar_search">
                     <img src="/images/search.svg "></img>
-                    <input type="text" placeholder="Search"></input>
+                    <input type="text" placeholder="Search..." value={input} onChange={(e) => setInput(e.target.value)}></input>
                     <Link to="/user-profile">
                         <div className="avatar">
                             <img src="/images/usersquare.svg"></img>
