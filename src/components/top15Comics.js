@@ -2,12 +2,13 @@ import React from "react";
 import CardManga from "./cardManga";
 import useFetch from "../hooks/useFetch";
 
-const NewRelease = () => {
-    const newRelease = useFetch(1);
-    const firstFiveItem = newRelease.slice(0, 5);
+const Top15Comics = () => {
+    const top15Comics = useFetch(0);
+
+    const top15Item = top15Comics.slice(0, 15);
     return (
         <div className="grid grid-cols-5 gap-[20px] px-[60px] pb-[60px]">
-            {firstFiveItem.map((item, index) => (
+            {top15Item.map((item, index) => (
                 <CardManga
                     key={index}
                     poster={item?.image_poster_link_goc}
@@ -20,4 +21,4 @@ const NewRelease = () => {
     );
 };
 
-export default NewRelease;
+export default Top15Comics;

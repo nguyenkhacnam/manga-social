@@ -12,7 +12,7 @@ const CardManga = ({ poster, title, rate, update }) => {
             </div>
             <div className="text-[#FFFFFF]">
                 <div className="mt-5">
-                    <h3 className="text-[#FFFFFF] lg:text-[26px] 2xl:text-[28px] leading-10 font-semibold">
+                    <h3 className="text-[#FFFFFF] lg:text-[26px] 2xl:text-[28px] leading-10 font-semibold overflow-hidden text-ellipsis whitespace-nowrap w-[200px]">
                         {title}
                     </h3>
                     <p className="lg:text-[18px] 2xl:text-[20px] leading-8 font-semibold mt-3">

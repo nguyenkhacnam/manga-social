@@ -1,18 +1,9 @@
-import React, { useState, useEffect } from "react";
-import prodApis from "../../api/home";
+import React from "react";
 import CardManga from "../../components/cardManga";
+import useFetch from "../../hooks/useFetch";
 
 const Page_Recent = () => {
-    const [comicRecent, setComicRecent] = useState([]);
-    useEffect(() => {
-        getComicRecent();
-    }, []);
-
-    const getComicRecent = async () => {
-        const comicRecentResponse = await prodApis.index();
-        console.log(comicRecentResponse.data);
-        setComicRecent(comicRecentResponse.data[4].data);
-    };
+    const comicRecent = useFetch(4);
     return (
         <div className="bg-black px-[60px] pb-[60px]">
             <div className="">

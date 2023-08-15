@@ -1,19 +1,10 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import prodApis from "../api/home";
+
 import CardComming from "./cardComming";
+import useFetch from "../hooks/useFetch";
 
 const CommingSoon = () => {
-    const [commingSoon, setCommingSoon] = useState([]);
-    useEffect(() => {
-        getCommingSoon();
-    }, []);
-
-    const getCommingSoon = async () => {
-        const commingSoonResponse = await prodApis.index();
-        console.log(commingSoonResponse.data);
-        setCommingSoon(commingSoonResponse.data[3].data);
-    };
+    const commingSoon = useFetch(3);
 
     const firstThreeItem = commingSoon.slice(0, 3);
 
