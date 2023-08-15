@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, json } from "react-router-dom";
 export default function Layout({ home }) {
     const [isHovered, setIsHovered] = useState(false);
     const [isServerHovered, setIsServerHovered] = useState(false);
@@ -9,8 +9,19 @@ export default function Layout({ home }) {
     console.log(input)
     const fetchData = (value) => {
         fetch('http://14.225.7.221:7979/')
+            .then((response) => response.json())
+            .then(res => {
+                console.log(res[1].data)
+                // const results = data.filter((data) => {
+                //     return data && data.title_manga && data.title_manga.toLowerCase().includes(value)
+                // })
+                // console.log(results)
+            })
     }
-
+    const handleChange = (value) => {
+        setInput(value)
+        fetchData()
+    }
     const handleMouseEnter = () => {
         setIsHovered(true);
     };
@@ -81,7 +92,7 @@ export default function Layout({ home }) {
                 </div>
                 <div className="avatar_search">
                     <img src="/images/search.svg "></img>
-                    <input type="text" placeholder="Search..." value={input} onChange={(e) => setInput(e.target.value)}></input>
+                    <input type="text" placeholder="Search..." value={input} onChange={(e) => handleChange(e.target.value)}></input>
                     <Link to="/user-profile">
                         <div className="avatar">
                             <img src="/images/usersquare.svg"></img>
