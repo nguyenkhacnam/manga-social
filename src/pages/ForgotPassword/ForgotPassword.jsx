@@ -87,7 +87,7 @@ const ForgotPassword = () => {
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
           autoComplete="off"
-          className=" w-[328px] md:w-full "
+          className=" w-[327px] md:w-full "
         >
           <Form.Item
             name="email"
