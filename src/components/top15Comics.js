@@ -1,17 +1,15 @@
 import React from "react";
-
-import CardComming from "./cardComming";
+import CardManga from "./cardManga";
 import useFetch from "../hooks/useFetch";
 
-const CommingSoon = () => {
-    const commingSoon = useFetch(3);
+const Top15Comics = () => {
+    const top15Comics = useFetch(0);
 
-    const firstThreeItem = commingSoon.slice(0, 3);
-
+    const top15Item = top15Comics.slice(0, 15);
     return (
-        <div className="grid grid-cols-2 gap-[20px] px-[60px] pb-[60px]">
-            {firstThreeItem.map((item, index) => (
-                <CardComming
+        <div className="grid grid-cols-5 gap-[20px] px-[60px] pb-[60px]">
+            {top15Item.map((item, index) => (
+                <CardManga
                     key={index}
                     poster={item?.image_poster_link_goc}
                     title={item?.title_manga}
@@ -23,4 +21,4 @@ const CommingSoon = () => {
     );
 };
 
-export default CommingSoon;
+export default Top15Comics;
