@@ -27,7 +27,6 @@ const Login = () => {
         values
       );
       message.success("Login is successfully");
-
       console.log("response.data.account", response.data.account);
       dispatch(updateUser(response.data.account));
       navigate("/");

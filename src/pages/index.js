@@ -17,7 +17,7 @@ import News from "../components/news";
 import { Link } from "react-router-dom";
 import NewUsers from "../components/newUsers";
 import Comments from "../components/comments";
-
+import NewRelease from "../components/newRelease";
 export default function Index() {
   return (
     <>
@@ -30,36 +30,36 @@ export default function Index() {
             <SliderImg2 arrImage2={[slider5, slider6, slider7]}></SliderImg2>
           </div>
         </div>
-        <img className="blur-dots" src="/images/Vector 2.svg"></img>
+        <img className="blur-dots" src="/images/Vector 2.svg" alt=""></img>
         <div className="background-dots"></div>
-        <div className="title-released-comic">
+        <div className="title-released-comic mt-[450px]">
           <h2>New Released Comic</h2>
-          <Link>
+          <Link to="/newRelease">
             <p>See all</p>
           </Link>
         </div>
-        <ComicRecent></ComicRecent>
+        <NewRelease></NewRelease>
 
         <div className="slider slider3">
           <SliderImg3 arrImage3={[slider8, slider9]}></SliderImg3>
         </div>
         <div className="title-released-comic">
           <h2>Recent Comics</h2>
-          <Link>
+          <Link to="/recent">
             <p>See all</p>
           </Link>
         </div>
         <ComicRecent></ComicRecent>
         <div className="title-released-comic">
           <h2>Recommnended Comics</h2>
-          <Link>
+          <Link to="/recent">
             <p>See all</p>
           </Link>
         </div>
         <ComicRecent></ComicRecent>
         <div className="title-released-comic">
           <h2>Comming Soon Comics</h2>
-          <Link>
+          <Link to="/commingsoon">
             <p>See all</p>
           </Link>
         </div>

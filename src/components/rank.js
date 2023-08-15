@@ -1,41 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
+import prodApis from "../api/home";
+import RankItem from "./rankItem";
 
 const Rank = () => {
-    return (
-        <div>
-            <div className='rank'>
-                <div className='filter-date' >
-                    <span>Weak</span>
-                    <span>Month</span>
-                    <span>Year</span>
+    const [rankComics, setRankComics] = useState([]);
+    useEffect(() => {
+        getRankComics(9);
+    }, []);
 
-                </div>
-                <div className='rank-template'>
-                    <div className='item-rank'>
-                        <p className='number'>1</p>
-                        <img src='/images/Rectangle 10.svg'></img>
-                        <div className='text-rank'>
-                            <p className='text-rank-top'>Jujutsu kaisen</p>
-                            <div className=''> 
-                                <span className='adv'>Adventure</span>
-                                <span>Action</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='item-rank'>
-                        <p className='number'>1</p>
-                        <img src='/images/Rectangle 10.svg'></img>
-                        <div className='text-rank'>
-                            <p className='text-rank-top'>Jujutsu kaisen</p>
-                            <div className=''> 
-                                <span className='adv'>Adventure</span>
-                                <span>Action</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    
-                </div>
+    const getRankComics = async (index) => {
+        const rankComicsResponse = await prodApis.index();
+        setRankComics(rankComicsResponse.data[index].data);
+    };
+
+    return (
+        <div className="px-[65px] pb-[60px]">
+            <div className="text-white flex items-center text-[30px] font-semibold gap-[30px] pb-[30px]">
+                <span className=" cursor-pointer hover:underline">Weak</span>
+                <span className=" cursor-pointer hover:underline">Month</span>
+                <span className=" cursor-pointer hover:underline">Year</span>
+            </div>
+            <div className="grid grid-rows-5 grid-flow-col gap-4">
+                {rankComics.map((item, index) => (
+                    <RankItem
+                        key={index}
+                        rank={index + 1}
+                        categories={item?.categories}
+                        title={item?.title_manga}
+                        poster={item?.image_poster}
+                    />
+                ))}
             </div>
         </div>
     );

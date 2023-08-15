@@ -1,31 +1,33 @@
-import React from 'react';
-import { useState } from 'react';
+import React from "react";
+import { useState, useEffect } from "react";
+import prodApis from "../api/home";
+import CardComming from "./cardComming";
 
 const CommingSoon = () => {
+    const [commingSoon, setCommingSoon] = useState([]);
+    useEffect(() => {
+        getCommingSoon();
+    }, []);
+
+    const getCommingSoon = async () => {
+        const commingSoonResponse = await prodApis.index();
+        console.log(commingSoonResponse.data);
+        setCommingSoon(commingSoonResponse.data[3].data);
+    };
+
+    const firstThreeItem = commingSoon.slice(0, 3);
 
     return (
-        <div>
-            <div className='recent_comic wrap-poster'>
-                <div  className='item-comic commingsoon' >
-                    <div className='wrap-img-zomm custom-wrap'>
-
-                        <img className='img-comic' src='/images/Rectangle 6.svg'></img>
-                    </div>
-                    
-                    <div className='comic_name'>
-                        <h3>Kaito BanZa</h3>
-                        <p className='name-auth'>Author:Takeshi</p>
-                    </div>
-                    <div className='wrap-hastag'>
-                            <div className='update'> <p>Written Stories</p></div>
-                            <div className='update'><p>Series</p></div>
-                            <div className='update'><p>Adventure</p></div>
-                    </div>
-                    <p className='date-at'>Expected realease date: 12/10/2023</p>
-                </div>
-                
-            </div>
-            
+        <div className="grid grid-cols-2 gap-[20px] px-[60px] pb-[60px]">
+            {firstThreeItem.map((item, index) => (
+                <CardComming
+                    key={index}
+                    poster={item?.image_poster_link_goc}
+                    title={item?.title_manga}
+                    rate={item?.rate}
+                    update={item.time_release}
+                />
+            ))}
         </div>
     );
 };

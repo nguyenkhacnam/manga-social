@@ -1,20 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import prodApis from "../api/home";
 import CardManga from "./cardManga";
 
-const ComicRecent = () => {
-    const [comicRecent, setComicRecent] = useState([]);
+const NewRelease = () => {
+    const [newRelease, setNewRelease] = useState([]);
+
     useEffect(() => {
-        getComicRecent();
+        getComicNewRelease();
     }, []);
 
-    const getComicRecent = async () => {
+    const getComicNewRelease = async () => {
         const comicRecentResponse = await prodApis.index();
-        console.log(comicRecentResponse.data);
-        setComicRecent(comicRecentResponse.data[4].data);
+        setNewRelease(comicRecentResponse.data[1].data);
     };
 
-    const firstFiveItem = comicRecent.slice(0, 5);
+    console.log(newRelease);
+    const firstFiveItem = newRelease.slice(0, 5);
     return (
         <div className="grid grid-cols-5 gap-[20px] px-[60px] pb-[60px]">
             {firstFiveItem.map((item, index) => (
@@ -30,4 +31,4 @@ const ComicRecent = () => {
     );
 };
 
-export default ComicRecent;
+export default NewRelease;
