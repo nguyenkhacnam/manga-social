@@ -19,97 +19,91 @@ import NewUsers from "../components/newUsers";
 import Comments from "../components/comments";
 import NewRelease from "../components/newRelease";
 export default function Index() {
-    return (
-        <>
-            <div className="cont">
-                <div className="slider">
-                    <SliderImg
-                        arrImage={[slider1, slider2, slider3, slider4]}
-                    ></SliderImg>
-                    <div className="slider2">
-                        <SliderImg2
-                            arrImage2={[slider5, slider6, slider7]}
-                        ></SliderImg2>
-                    </div>
-                </div>
-                <img
-                    className="blur-dots"
-                    src="/images/Vector 2.svg"
-                    alt=""
-                ></img>
-                <div className="background-dots"></div>
-                <div className="title-released-comic mt-[450px]">
-                    <h2>New Released Comic</h2>
-                    <Link to="/newRelease">
-                        <p>See all</p>
-                    </Link>
-                </div>
-                <NewRelease></NewRelease>
+  return (
+    <>
+      <div className="cont">
+        <div className="slider">
+          <SliderImg
+            arrImage={[slider1, slider2, slider3, slider4]}
+          ></SliderImg>
+          <div className="slider2">
+            <SliderImg2 arrImage2={[slider5, slider6, slider7]}></SliderImg2>
+          </div>
+        </div>
+        <img className="blur-dots" src="/images/Vector 2.svg" alt=""></img>
+        <div className="background-dots"></div>
+        <div className="title-released-comic mt-[450px]">
+          <h2>New Released Comic</h2>
+          <Link to="/newRelease">
+            <p>See all</p>
+          </Link>
+        </div>
+        <NewRelease></NewRelease>
 
-                <div className="slider slider3">
-                    <SliderImg3 arrImage3={[slider8, slider9]}></SliderImg3>
-                </div>
-                <div className="title-released-comic">
-                    <h2>Recent Comics</h2>
-                    <Link to="/recent">
-                        <p>See all</p>
-                    </Link>
-                </div>
-                <ComicRecent></ComicRecent>
-                <div className="title-released-comic">
-                    <h2>Recommnended Comics</h2>
-                    <Link to="/recent">
-                        <p>See all</p>
-                    </Link>
-                </div>
-                <ComicRecent></ComicRecent>
-                <div className="title-released-comic">
-                    <h2>Comming Soon Comics</h2>
-                    <Link to="/commingsoon">
-                        <p>See all</p>
-                    </Link>
-                </div>
-                <CommingSoon></CommingSoon>
-                <div className="title-released-comic">
-                    <h2>Top 15 Best Comics of the Week</h2>
-                    <Link>
-                        <p>See all</p>
-                    </Link>
-                </div>
-                <ComicRecent></ComicRecent>
-                <div className="title-released-comic">
-                    <h2>Comedy Comics</h2>
-                    <Link>
-                        <p>See all</p>
-                    </Link>
-                </div>
-                <ComicRecent></ComicRecent>
-                <div className="title-released-comic">
-                    <h2>Free Comics</h2>
-                    <Link>
-                        <p>See all</p>
-                    </Link>
-                </div>
-                <ComicRecent></ComicRecent>
-                <div className="title-released-comic">
-                    <h2>News</h2>
-                    <Link>
-                        <p>See all</p>
-                    </Link>
-                </div>
-                <div className="news">
-                    <News></News>
-                    <NewUsers></NewUsers>
-                </div>
-                <div className="title-released-comic">
-                    <h2>Rank</h2>
-                </div>
-                <Rank></Rank>
-                <div className="title-released-comic">
-                    <h2>Comment</h2>
-                </div>
-                <Comments></Comments>
-            </div>
-        </>
-    );
+        <div className="slider slider3">
+          <SliderImg3 arrImage3={[slider8, slider9]}></SliderImg3>
+        </div>
+        <div className="title-released-comic">
+          <h2>Recent Comics</h2>
+          <Link to="/recent">
+            <p>See all</p>
+          </Link>
+        </div>
+        <ComicRecent></ComicRecent>
+        <div className="title-released-comic">
+          <h2>Recommnended Comics</h2>
+          <Link to="/recent">
+            <p>See all</p>
+          </Link>
+        </div>
+        <ComicRecent></ComicRecent>
+        <div className="title-released-comic">
+          <h2>Comming Soon Comics</h2>
+          <Link to="/commingsoon">
+            <p>See all</p>
+          </Link>
+        </div>
+        <CommingSoon></CommingSoon>
+        <div className="title-released-comic">
+          <h2>Top 15 Best Comics of the Week</h2>
+          <Link>
+            <p>See all</p>
+          </Link>
+        </div>
+        <ComicRecent></ComicRecent>
+        <div className="title-released-comic">
+          <h2>Comedy Comics</h2>
+          <Link>
+            <p>See all</p>
+          </Link>
+        </div>
+        <ComicRecent></ComicRecent>
+        <div className="title-released-comic">
+          <h2>Free Comics</h2>
+          <Link>
+            <p>See all</p>
+          </Link>
+        </div>
+        <ComicRecent></ComicRecent>
+        <div className="title-released-comic">
+          <h2>News</h2>
+          <Link>
+            <p>See all</p>
+          </Link>
+        </div>
+        <div className="news">
+          <News></News>
+          <NewUsers></NewUsers>
+        </div>
+        <div className="title-released-comic">
+          <h2>Rank</h2>
+        </div>
+        <Rank></Rank>
+        <div className="title-released-comic">
+          <h2>Comment</h2>
+        </div>
+        <Comments></Comments>
+      </div>
+    </>
+  );
 }
