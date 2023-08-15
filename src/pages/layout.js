@@ -31,24 +31,26 @@ export default function Layout({ home }) {
                     </div>
                 </Link>
                 <div className="menu-header">
-                    <div
-                        className="comic"
-                        onMouseEnter={handleMouseEnter}
-                        onMouseLeave={handleMouseLeave}
-                    >
-                        <p>Comic</p>
-                        <img
-                            className="arrow-img"
-                            src={
-                                isHovered
-                                    ? "/images/Polygon cam.svg"
-                                    : "/images/Polygon 1.svg"
-                            }
-                            alt="Arrow"
-                        />
-                    </div>
+                    <Link to="/">
+                        <div
+                            className="comic"
+                            onMouseEnter={handleMouseEnter}
+                            onMouseLeave={handleMouseLeave}
+                        >
+                            <p>Comic</p>
+                            <img
+                                className="arrow-img"
+                                src={
+                                    isHovered
+                                        ? "/images/Polygon cam.svg"
+                                        : "/images/Polygon 1.svg"
+                                }
+                                alt="Arrow"
+                            />
+                        </div>
+                    </Link>
 
-                    <p>Genres</p>
+                    <Link to="/genres"><p>Genres</p></Link>
 
                     <p>Popular</p>
 
@@ -68,14 +70,16 @@ export default function Layout({ home }) {
                             alt="Arrow"
                         />
                     </div>
-                    <p className="contact">Contact us</p>
+                    <Link to="/contact-us"><p className="contact">Contact us</p></Link>
                 </div>
                 <div className="avatar_search">
                     <img src="/images/search.svg "></img>
                     <input type="text" placeholder="Search"></input>
-                    <div className="avatar">
-                        <img src="/images/usersquare.svg"></img>
-                    </div>
+                    <Link to="/user-profile">
+                        <div className="avatar">
+                            <img src="/images/usersquare.svg"></img>
+                        </div>
+                    </Link>
                 </div>
             </div>
             <Outlet></Outlet>

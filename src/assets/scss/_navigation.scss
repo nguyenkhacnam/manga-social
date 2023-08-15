@@ -1,15 +1,17 @@
 .header-top {
   height: 115px;
-  width: 1706px;
+//   min-width: 1520px;
   position: relative;
   background-color: rgba(70, 70, 70, 0.7);
   z-index: 1;
   display: flex;
-  padding: 31px 76px;
+//   padding: 31px 76px;
+  justify-content: center;
+  align-items: center;
   .title {
     display: flex;
     gap: 17px;
-    margin-right: 92px;
+    margin-right: 100px;
 
     img {
       width: 43px;
@@ -25,8 +27,9 @@
   }
   .menu-header {
     display: flex;
-    gap: 63px;
-    margin-top: 10px;
+    gap: 50px;
+    // margin-top: 10px;
+    align-self: center;
 
     .comic {
       display: flex;
@@ -71,13 +74,15 @@
   }
   .avatar_search {
     display: flex;
-    margin-left: 139px;
+    margin-left: 190px;
+    align-self: center;
     img {
       position: relative;
       width: 20px;
       left: 38px;
       height: 20px;
-      top: 13px;
+      transform: translateY(0);
+      align-self: center;
     }
     input {
       width: 285px;
@@ -87,6 +92,7 @@
       background-color: rgba(218, 218, 218, 1);
       padding-left: 48px;
       padding-top: 5px;
+      align-self: center;
     }
     input::placeholder {
       color: rgba(101, 103, 107, 1);
@@ -99,16 +105,22 @@
     .avatar {
       width: 68px;
       height: 68px;
-      padding: 20px;
+    //   padding: 20px;
       background-color: rgba(246, 157, 23, 1);
-      border-radius: 51px;
+      border-radius: 50px;
       margin-left: 22px;
-      margin-top: -10px;
+    //   margin-top: -10px;
+    //   align-self: center;
+      position: relative;
       img {
+        display: block;
         width: 37px;
         height: 37px;
         margin-left: -42px;
         margin-top: -19px;
+        left: 83%;
+        bottom: 25%;
+        position: absolute;
       }
     }
   }
