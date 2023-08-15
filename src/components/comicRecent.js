@@ -1,19 +1,9 @@
-import React, { useState, useEffect } from "react";
-import prodApis from "../api/home";
+import React from "react";
 import CardManga from "./cardManga";
+import useFetch from "../hooks/useFetch";
 
 const ComicRecent = () => {
-    const [comicRecent, setComicRecent] = useState([]);
-    useEffect(() => {
-        getComicRecent();
-    }, []);
-
-    const getComicRecent = async () => {
-        const comicRecentResponse = await prodApis.index();
-        console.log(comicRecentResponse.data);
-        setComicRecent(comicRecentResponse.data[4].data);
-    };
-
+    const comicRecent = useFetch(4);
     const firstFiveItem = comicRecent.slice(0, 5);
     return (
         <div className="grid grid-cols-5 gap-[20px] px-[60px] pb-[60px]">

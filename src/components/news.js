@@ -1,81 +1,12 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import prodApis from "../api/home";
+import NewsComics from "./newsComics";
+import NewUsers from "./newUsers";
+
 const News = () => {
-    const [news, setNews] = useState([]);
-    useEffect(() => {
-        getNews();
-    }, []);
-    const getNews = async () => {
-        // (async () => {
-        //     const newsResponse = await prodApis.index();
-        //     setNews(newsResponse.data.Anime_Manga_News);
-        // })();
-        const newsResponse = await prodApis.index();
-        setNews(newsResponse.data[6].data);
-    };
-
     return (
-        <div className="news-left">
-            <div className="poster">
-                <div className="custom">
-                    {news &&
-                        news.map((news, index) => {
-                            if (index % 2 === 0) {
-                                return (
-                                    <>
-                                        <div className="space" key={index}>
-                                            <div className="wrap-img-thumbnail">
-                                                <img
-                                                    className="thumbnail"
-                                                    src={news.images_poster}
-                                                    alt="poster"
-                                                ></img>
-                                            </div>
-                                            <div className="discriber folow-poster">
-                                                <p className="discriber-date">
-                                                    {news.time_news}
-                                                </p>
-                                                <p className="discriber-text">
-                                                    {news.title_news}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </>
-                                );
-                            }
-                            return "";
-                        })}
-                </div>
-
-                <div className="custom-samll-news">
-                    {news &&
-                        news.map((news, index) => {
-                            if (index % 2 === 1) {
-                                return (
-                                    <>
-                                        <div className="thumbnail-left">
-                                            <img
-                                                className="thumbnail-small"
-                                                src={news.images_poster}
-                                                alt="poster"
-                                            ></img>
-                                            <div className="discriber ">
-                                                <p className="discriber-date">
-                                                    {news.time_news}
-                                                </p>
-                                                <p className="discriber-text">
-                                                    {news.title_news}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </>
-                                );
-                            }
-                            return "";
-                        })}
-                </div>
-            </div>
+        <div>
+            <NewsComics />
+            <NewUsers />
         </div>
     );
 };
