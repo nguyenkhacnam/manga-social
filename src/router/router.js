@@ -13,6 +13,8 @@ import SignUp from "../pages/SignUp/SignUp.jsx";
 import Page_NewRelease from "../pages/NewRelease/NewRelease";
 import Page_Recent from "../pages/Recent/Recent";
 import Page_Comming from "../pages/Comming/Comming";
+import ChapterPage from "../pages/ChapterPage/ChapterPage";
+import ReadChapter from "../pages/ReadChapter/ReadChapter";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -53,6 +55,14 @@ const router = createBrowserRouter([
       {
         path: "commingsoon",
         element: <Page_Comming />,
+      },
+      {
+        path: "chapter/:slug",
+        element: <ChapterPage />,
+      },
+      {
+        path: "chapter/:slug/:id",
+        element: <ReadChapter />,
       },
     ],
   },
