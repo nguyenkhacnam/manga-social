@@ -282,7 +282,7 @@ const ChapterPage = () => {
           className={` ${!showTab ? "tabbtn" : " none-tab "} `}
           onClick={handleShowTab}
         >
-          Comment
+          Commen
         </div>
       </div>
       <div>
