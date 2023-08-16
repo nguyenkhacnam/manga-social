@@ -3,6 +3,7 @@ import "./ChapterPage.scss";
 import ChapterCard from "../../components/ChapterCard/ChapterCard";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import MangaComments from "../../components/MangaComments";
 
 const ChapterPage = () => {
   const [showTab, setShowTab] = useState(true);
@@ -282,7 +283,7 @@ const ChapterPage = () => {
           className={` ${!showTab ? "tabbtn" : " none-tab "} `}
           onClick={handleShowTab}
         >
-          Commen
+          Comment
         </div>
       </div>
       <div>
@@ -324,7 +325,7 @@ const ChapterPage = () => {
           </div>
         )}
       </div>
-      <div>{!showTab && <div>comment</div>}</div>
+      <div>{!showTab && <div><MangaComments /></div>}</div>
     </div>
   );
 };
