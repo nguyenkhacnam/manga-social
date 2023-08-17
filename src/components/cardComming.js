@@ -4,30 +4,40 @@ const CardComming = ({ poster, title, rate, update }) => {
     return (
         <div className=" cursor-pointer">
             <div className="ease-in-out duration-300 hover:scale-105 transition">
-                <img className="w-[712px] h-[410px]" src={poster} alt="" />
+                <img
+                    className="w-[400px] h-[310px] lg:w-[712px] lg:h-[410px]"
+                    src={poster}
+                    alt=""
+                />
             </div>
 
-            <div className="text-white mt-3">
+            <div className="text-white mt-2 lg:mt-3">
                 <div className="">
-                    <h3 className="text-white lg:text-[26px] 2xl:text-[28px] leading-10 font-semibold overflow-hidden text-ellipsis whitespace-nowrap w-[400px]">
+                    <h3 className="text-[#FFFFFF] text-[12px] sm-[16px] md:text-[20px] lg:text-[26px] xl:text-[28px] leading-5 lg:leading-10 font-semibold overflow-hidden text-ellipsis whitespace-nowrap w-[120px] lg:w-[200px]">
                         {title}
                     </h3>
-                    <p className="lg:text-[18px] 2xl:text-[20px] leading-8 font-semibold ">
+                    <p className="text-[11px] sm-text-[13px] md:text-[15px] lg:text-[18px] xl:text-[20px] leading-4 lg:leading-8 font-semibold lg:mt-3">
                         Author:Takeshi
                     </p>
                 </div>
-                <div className="flex items-center gap-3 py-3">
-                    <div className="p-[10px] rounded-[33px] bg-[#363636]">
-                        <p className="text-[20px]">Written Stories</p>
+                <div className="flex items-center gap-3 py-1 lg:py-3">
+                    <div className="p-[5px] lg:p-[10px] rounded-[33px] bg-[#363636]">
+                        <p className="text-[11px] sm-text-[13px] md:text-[15px] lg:text-[18px] xl:text-[22px] leading-4 lg:leading-8 font-semiboldlg:text-[20px]">
+                            Written Stories
+                        </p>
                     </div>
-                    <div className="p-[10px] rounded-[33px] bg-[#363636]">
-                        <p className="text-[20px]">Series</p>
+                    <div className="p-[5px] lg:p-[10px] rounded-[33px] bg-[#363636]">
+                        <p className="text-[11px] sm-text-[13px] md:text-[15px] lg:text-[18px] xl:text-[22px] leading-4 lg:leading-8 font-semiboldlg:text-[20px]">
+                            Series
+                        </p>
                     </div>
-                    <div className="p-[10px] rounded-[33px] bg-[#363636]">
-                        <p className="text-[20px]">Adventure</p>
+                    <div className="py-[5px] px-[10px] lg:p-[10px] rounded-[33px] bg-[#363636]">
+                        <p className="text-[11px] sm-text-[13px] md:text-[15px] lg:text-[18px] xl:text-[22px] leading-4 lg:leading-8 font-semiboldlg:text-[20px]">
+                            Adventure
+                        </p>
                     </div>
                 </div>
-                <p className="lg:text-[20px] 2xl:text-[22px] leading-8 font-semibold">
+                <p className="text-[11px] sm-text-[13px] md:text-[15px] lg:text-[18px] xl:text-[22px] leading-4 lg:leading-8 font-semibold">
                     Expected realease date: {update}
                 </p>
             </div>

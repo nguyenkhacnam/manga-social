@@ -1,17 +1,10 @@
-import React, { useState, useEffect } from "react";
-import prodApis from "../api/home";
+import React from "react";
 import RankItem from "./rankItem";
+import { useSelector } from "react-redux";
 
 const Rank = () => {
-    const [rankComics, setRankComics] = useState([]);
-    useEffect(() => {
-        getRankComics(9);
-    }, []);
-
-    const getRankComics = async (index) => {
-        const rankComicsResponse = await prodApis.index();
-        setRankComics(rankComicsResponse.data[index].data);
-    };
+    const mangaData = useSelector((store) => store.mangaData.mangaData);
+    const rankComics = mangaData[9]?.data;
 
     return (
         <div className="px-[65px] pb-[60px]">
