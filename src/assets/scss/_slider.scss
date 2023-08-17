@@ -77,10 +77,25 @@
 .slider3 {
     height: auto;
     background-color: black;
-    padding-left: 65px;
-    padding-right: 65px;
-    padding-bottom: 60px;
-    padding-top: 30px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: 16px;
+
+    @media screen and (min-width: 640px) {
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 20px;
+    }
+    @media screen and (min-width: 768px) {
+        padding-left: 25px;
+        padding-right: 25px;
+        padding-bottom: 25px;
+    }
+    @media screen and (min-width: 1024px) {
+        padding-left: 60px;
+        padding-right: 60px;
+        padding-bottom: 60px;
+    }
     // border-radius: 12px;
     .slick-dots li {
         display: none;

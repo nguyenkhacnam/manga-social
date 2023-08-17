@@ -1,11 +1,11 @@
 import React from "react";
-import useFetch from "../hooks/useFetch";
 import NewsComicCard from "./newsComicCard";
 import NewsComicCardSmall from "./newsComicCardSmall";
+import { useSelector } from "react-redux";
 
 const NewsComics = () => {
-    const newsComicsData = useFetch(6);
-    const dataSlice = newsComicsData.slice(0, 7);
+    const mangaData = useSelector((store) => store.mangaData.mangaData);
+    const dataSlice = mangaData[6]?.data.slice(0, 7);
     return (
         <div className="flex gap-10 mb-[60px]">
             <div className="flex flex-col gap-8">
