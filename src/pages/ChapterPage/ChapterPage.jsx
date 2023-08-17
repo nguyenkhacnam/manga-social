@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./ChapterPage.scss";
 import ChapterCard from "../../components/ChapterCard/ChapterCard";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 
 const ChapterPage = () => {
   const [showTab, setShowTab] = useState(true);
@@ -61,10 +61,16 @@ const ChapterPage = () => {
     chapterDetail?.description?.slice(0, 180) + "... ";
   const fullDescription = chapterDetail?.description;
 
+  const firstChapter = chapterDetail?.chapters[0] || "";
+  const lastDashIndex = firstChapter.lastIndexOf("/chapter-");
+
+  // Lấy phần từ "chapter-" đến hết trong chuỗi chapter
+  const chapterNumber = firstChapter.substring(lastDashIndex + 1);
+  console.log("chapterNumber in chapterPage", chapterNumber);
   return (
     <div>
       <div
-        className=" w-[100%] h-[100%] bg-cover bg-center bg-no-repeat md:flex md:gap-30 px-[14px] pt-[14px] md:px-[141px] md:pt-[48px] gap-10"
+        className=" w-[100%] h-[1000px] bg-cover bg-center bg-no-repeat md:flex md:gap-30 px-[14px] pt-[14px] md:px-[141px] md:pt-[48px] gap-10"
         style={{
           backgroundImage: "url('/images/ChapterPage/bia.png')",
           background:
@@ -127,18 +133,7 @@ const ChapterPage = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col gap-[8px] md:gap-5">
-          {/* desc */}
-          <div>
-            <p className="w-[223px] h-[80px] text-[11px] font-medium leading-[16px]  md:w-[747px] md:font-normal md:text-[28px] md:leading-[36px] text-white">
-              {showFullDescription ? fullDescription : truncatedDescription}
-              {!showFullDescription && (
-                <button onClick={() => setShowFullDescription(true)}>
-                  <div className=" underline  underline-offset-4">See All</div>
-                </button>
-              )}
-            </p>
-          </div>
+        <div className="flex flex-col gap-[8px] md:gap-5 ">
           <div className="flex flex-col gap-[8px] md:gap-[40px]">
             {/* name && tương tác */}
             <div className="flex flex-col gap-[8px] md:gap-[21px]">
@@ -173,7 +168,7 @@ const ChapterPage = () => {
                 </div>
               </div>
             </div>
-            <div className="flex flex-col gap-[8px] md:gap-[40px]">
+            <div className="flex flex-col gap-[8px] md:gap-[40px] md:flex-col-reverse ">
               {/* info chapter */}
               <div className="flex flex-col gap-[8px] md:gap-[16px]">
                 <div className="text-[#9E9E9E] font-normal text-[12px] leading-[16px] md:text-[28px]  md:leading-[36px] flex items-center gap-2">
@@ -193,7 +188,7 @@ const ChapterPage = () => {
                 </div>
               </div>
               {/* server && button */}
-              <div className="flex flex-col gap-[40px]">
+              <div className="flex flex-col gap-[40px] md:flex-col-reverse">
                 {/* chọn server */}
                 <div className="flex flex-col gap-[10px]">
                   <div className=" font-bold text-[12px] leading-[16px]  md:text-[28px] md:leading-[36px] text-white ">
@@ -240,11 +235,14 @@ const ChapterPage = () => {
                 </div>
                 {/* button */}
                 <div className="flex  gap-5">
-                  <button className=" p-[8px]  rounded-[12px] md:px-[52px] md:py-[26px]  bg-[#FF2020]  text-white md:rounded-[67px] ">
-                    <div className="font-bold text-[12px] leading-[16px] md:text-[36px] md:leading-[44px] ">
-                      Read now
-                    </div>
-                  </button>
+                  <NavLink to={`/chapter/${slug}/${chapterNumber}`}>
+                    <button className=" p-[8px]  rounded-[12px] md:px-[52px] md:py-[26px]  bg-[#FF2020]  text-white md:rounded-[67px] ">
+                      <div className="font-bold text-[12px] leading-[16px] md:text-[36px] md:leading-[44px] ">
+                        Read now
+                      </div>
+                    </button>
+                  </NavLink>
+
                   <button className=" p-[8px]  rounded-[12px] text-black md:px-[52px] md:py-[26px]   bg-[#496EF1]  md:text-white md:rounded-[67px]">
                     <div className="font-bold text-[12px] leading-[16px] md:text-[36px] md:leading-[44px] flex gap-1 md:gap-3 ">
                       <div> My List </div>
@@ -268,6 +266,17 @@ const ChapterPage = () => {
                 </div>
               </div>
             </div>
+          </div>
+          {/* desc */}
+          <div>
+            <p className="w-[223px] h-[80px] text-[11px] font-medium leading-[16px]  md:w-[747px] md:font-normal md:text-[28px] md:leading-[36px] text-white">
+              {showFullDescription ? fullDescription : truncatedDescription}
+              {!showFullDescription && (
+                <button onClick={() => setShowFullDescription(true)}>
+                  <div className=" underline  underline-offset-4">See All</div>
+                </button>
+              )}
+            </p>
           </div>
         </div>
       </div>
