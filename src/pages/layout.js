@@ -1,4 +1,5 @@
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { Link, Outlet, json } from "react-router-dom";
 export default function Layout({ home }) {
     const [isHovered, setIsHovered] = useState(false);
@@ -18,6 +19,32 @@ export default function Layout({ home }) {
                 // console.log(results)
             });
     };
+
+    // useEffect(() => {
+    //     axios.get('http://14.225.7.221:7979/')
+    //         .then(response => {
+    //             response.data.forEach((data, index) => {
+    //                 // console.log(data)
+    //                 return data.data.forEach((data) => {
+    //                     console.log(data)
+    //                     // const titleManga = data.filter((data) => {
+    //                     //     return data.title_manga
+    //                     // })
+
+    //                     // console.log(titleManga)
+    //                     // const arrTitleManga = []
+    //                     // if (titleManga) {
+    //                     //     arrTitleManga.push(titleManga)
+    //                     // }
+    //                     // console.log(arrTitleManga)
+    //                 })
+    //             })
+    //             // console.log(data);
+    //         })
+    //         .catch(error => {
+    //             console.error('Error fetching data:', error);
+    //         });
+    // }, [])
     const handleChange = (value) => {
         setInput(value);
         fetchData();

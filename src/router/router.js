@@ -14,6 +14,8 @@ import Page_NewRelease from "../pages/NewRelease/NewRelease";
 import Page_Recent from "../pages/Recent/Recent";
 import Page_Comming from "../pages/Comming/Comming";
 import Page_News from "../pages/News/News";
+import ChapterPage from "../pages/ChapterPage/ChapterPage";
+import ReadChapter from "../pages/ReadChapter/ReadChapter";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -58,6 +60,14 @@ const router = createBrowserRouter([
             {
                 path: "news",
                 element: <Page_News />,
+            },
+            {
+                path: "chapter/:slug",
+                element: <ChapterPage />,
+            },
+            {
+                path: "chapter/:slug/:id",
+                element: <ReadChapter />,
             },
         ],
     },

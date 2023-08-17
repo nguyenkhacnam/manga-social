@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
-
+import MangaComments from "../../components/MangaComments";
 function ContactUs() {
     const [image, setImage] = useState(null);
     const [userId, setUserId] = useState("");
