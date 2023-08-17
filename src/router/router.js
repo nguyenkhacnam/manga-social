@@ -16,6 +16,8 @@ import Page_Comming from "../pages/Comming/Comming";
 import Page_News from "../pages/News/News";
 import ChapterPage from "../pages/ChapterPage/ChapterPage";
 import ReadChapter from "../pages/ReadChapter/ReadChapter";
+import Page_Recommended from "../pages/Recommended/Recommended";
+import Page_Comedy from "../pages/Comedy/Comedy";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -51,12 +53,20 @@ const router = createBrowserRouter([
                 element: <Page_Recent />,
             },
             {
+                path: "recommnended",
+                element: <Page_Recommended />,
+            },
+            {
                 path: "commingsoon",
                 element: <Page_Comming />,
             },
             {
                 path: "news",
                 element: <Page_News />,
+            },
+            {
+                path: "comedy",
+                element: <Page_Comedy />,
             },
             {
                 path: "chapter/:slug",
