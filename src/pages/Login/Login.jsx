@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Form } from "antd";
 import axios from "axios";
 import * as message from "../../components/Message/Message";
@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import Loading from "../../components/Loading/Loading";
 import { useDispatch } from "react-redux";
 import { updateUser } from "../../Redux/Feature/userSlice";
+import { getMangaData } from "../../Redux/Feature/mangaData";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -13,6 +14,10 @@ const Login = () => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getMangaData());
+  }, []);
 
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
