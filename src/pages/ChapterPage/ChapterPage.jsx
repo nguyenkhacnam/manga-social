@@ -5,6 +5,8 @@ import axios from "axios";
 import { NavLink, useParams } from "react-router-dom";
 import MangaComments from "../../components/MangaComments";
 
+import { useSelector, useDispatch } from "react-redux";
+
 const ChapterPage = () => {
   const [showTab, setShowTab] = useState(true);
   const [chapterDetail, setChapterDetail] = useState();
