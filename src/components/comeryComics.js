@@ -7,7 +7,7 @@ const ComedyComics = () => {
 
     const firstFiveItem = comedyComics.slice(0, 5);
     return (
-        <div className="grid grid-cols-5 gap-[20px] px-[60px] pb-[60px]">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-[20px] px-[16px] pb-[16px] sm:px-[20px] md:px-[25px] lg:px-[60px] lg:pb-[60px]">
             {firstFiveItem.map((item, index) => (
                 <CardManga
                     key={index}
