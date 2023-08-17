@@ -8,7 +8,7 @@ const CardManga = ({ poster, title, rate, update }) => {
             <div className=" cursor-pointer">
                 <div className="ease-in-out duration-300 hover:scale-105 transition">
                     <img
-                        className="w-[119px] h-[140px] lg:w-[255px] lg:h-[383px] rounded-[8px] lg:rounded-[12px]"
+                        className="w-[119px] h-[140px] sm:w-[140px] sm:h-[163px] md:w-[200px] md:h-[236px] lg:w-[255px] lg:h-[383px] rounded-[8px] lg:rounded-[12px]"
                         src={poster}
                         alt=""
                     ></img>

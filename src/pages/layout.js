@@ -163,6 +163,7 @@ export default function Layout({ home }) {
                 </div>
             </div>
 
+            {/* User mobile */}
             <div className="bg-black relative py-5 z-10 h-max px-[16px] sm:px-[20px] md:px-[25px] w-full lg:hidden">
                 <div className=" flex flex-col justify-center w-full">
                     <div className="flex items-center justify-between">
@@ -208,6 +209,68 @@ export default function Layout({ home }) {
                             value={input}
                             onChange={(e) => handleChange(e.target.value)}
                         ></input>
+                    </div>
+                </div>
+            </div>
+
+            {/* Nav bar mobile */}
+            <div className="w-full h-[60px] fixed z-50 bottom-0 bg-[#F45F17] lg:hidden">
+                <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-center">
+                        <Link to="/">
+                            <div className="flex flex-col items-center justify-center">
+                                <img
+                                    className="w-[20px] h-[20px] text-[#FFFFFF]"
+                                    src="/images/home.svg"
+                                    alt=""
+                                />
+                                <p className="text-[#FFFFFF] lg:text-[18px] xl:text-[20px] hover:text-[#f45f17] font-semibold whitespace-nowrap">
+                                    Home
+                                </p>
+                            </div>
+                        </Link>
+                    </div>
+                    <div className="flex items-center justify-center">
+                        <Link to="/news">
+                            <div className="flex flex-col items-center">
+                                <img
+                                    className="w-[20px] h-[20px]"
+                                    src="/images/news.svg"
+                                    alt=""
+                                />
+                                <p className="text-[#FFFFFF] lg:text-[18px] xl:text-[20px] hover:text-[#f45f17] font-semibold whitespace-nowrap">
+                                    News
+                                </p>
+                            </div>
+                        </Link>
+                    </div>
+                    <div>
+                        <Link to="/genres">
+                            <div className="flex flex-col items-center">
+                                <img
+                                    className="w-[20px] h-[20px]"
+                                    src="/images/genres.svg"
+                                    alt=""
+                                />
+                                <p className="text-[#FFFFFF] lg:text-[18px] xl:text-[20px] hover:text-[#f45f17] font-semibold whitespace-nowrap">
+                                    Genres
+                                </p>
+                            </div>
+                        </Link>
+                    </div>
+                    <div>
+                        <Link to="/">
+                            <div className="flex flex-col items-center">
+                                <img
+                                    className="w-[20px] h-[20px]"
+                                    src="/images/profile.svg"
+                                    alt=""
+                                />
+                                <p className="text-[#FFFFFF] lg:text-[18px] xl:text-[20px] hover:text-[#f45f17] font-semibold whitespace-nowrap">
+                                    Profile
+                                </p>
+                            </div>
+                        </Link>
                     </div>
                 </div>
             </div>

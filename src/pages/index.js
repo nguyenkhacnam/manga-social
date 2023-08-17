@@ -34,7 +34,7 @@ export default function Index() {
 
     return (
         <>
-            <div className="cont">
+            <div className="cont overflow-x-hidden">
                 <div className="slider">
                     <SliderImg
                         className=""
