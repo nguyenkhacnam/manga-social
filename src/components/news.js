@@ -4,9 +4,12 @@ import NewUsers from "./newUsers";
 
 const News = () => {
     return (
-        <div className="flex items-start gap-[200px]">
+        <div className="flex items-start gap-[80px]">
             <NewsComics />
-            <NewUsers />
+            <div className="flex flex-col gap-5">
+                <NewUsers />
+                <NewUsers />
+            </div>
         </div>
     );
 };

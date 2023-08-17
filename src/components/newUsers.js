@@ -22,6 +22,9 @@ const NewUsers = () => {
                 ))}
             </div>
             <div></div>
+            <p className="text-[#7A7A7A] text-[24px] font-semibold pt-[20px]">
+                See more
+            </p>
         </div>
     );
 };
