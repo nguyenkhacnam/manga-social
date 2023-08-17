@@ -16,6 +16,7 @@ import {
   initMessageListener,
 } from "redux-state-sync";
 import userSlice from "./Feature/userSlice";
+import mangaData from "./Feature/mangaData";
 
 const reduxStateSyncConfig = {
   predicate: (action) => {
@@ -40,6 +41,7 @@ const persistedReducer = persistReducer(
   persistConfig,
   combineReducers({
     user: userSlice,
+    mangaData: mangaData,
   })
 );
 
