@@ -1,9 +1,10 @@
 import React from "react";
-import useFetch from "../../hooks/useFetch";
 import NewsComicsPageCard from "../../components/newsComicsPageCard";
+import { useSelector } from "react-redux";
 
 const Page_News = () => {
-    const newsData = useFetch(6);
+    const mangaData = useSelector((store) => store.mangaData.mangaData);
+    const newsData = mangaData[6]?.data;
     return (
         <div className="bg-black px-[60px] py-[65px]">
             <h1 className="text-[#FFFFFF] text-[20px] md:text-[26px] lg:text-[32px] font-bold mb-[40px]">
