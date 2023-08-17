@@ -4,19 +4,26 @@ import ChapterCard from "../../components/ChapterCard/ChapterCard";
 import axios from "axios";
 import { NavLink, useParams } from "react-router-dom";
 import MangaComments from "../../components/MangaComments";
-
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 const ChapterPage = () => {
-  const [showTab, setShowTab] = useState(true);
+  const [showChapter, setShowChapter] = useState(true);
+  const [showComment, setShowComment] = useState(false);
   const [chapterDetail, setChapterDetail] = useState();
   const [visibleChapterCount, setVisibleChapterCount] = useState(12);
   const [showFullDescription, setShowFullDescription] = useState(false);
   const params = useParams();
   const { slug } = params;
 
-  const handleShowTab = () => {
-    setShowTab(!showTab);
+  const user = useSelector((store) => store.user);
+  console.log("user", user);
+  const handleShowChapter = () => {
+    setShowChapter(true);
+    setShowComment(false);
+  };
+  const handleShowComment = () => {
+    setShowComment(true);
+    setShowChapter(false);
   };
 
   const fetchChapterDetail = async () => {
@@ -33,7 +40,7 @@ const ChapterPage = () => {
 
   useEffect(() => {
     fetchChapterDetail();
-  }, [slug]);
+  }, [slug, user]);
 
   const handleSeeMore = () => {
     setVisibleChapterCount((prevCount) => prevCount + 10);
@@ -70,6 +77,7 @@ const ChapterPage = () => {
   // Lấy phần từ "chapter-" đến hết trong chuỗi chapter
   const chapterNumber = firstChapter.substring(lastDashIndex + 1);
   console.log("chapterNumber in chapterPage", chapterNumber);
+  console.log("chapterDetail", chapterDetail);
   return (
     <div>
       <div
@@ -285,23 +293,23 @@ const ChapterPage = () => {
       </div>
       <div className="py-[12px] flex items-center justify-center gap-[47px] md:gap-[87px] bg-[#3C3B38]">
         <div
-          className={` ${showTab ? "tabbtn" : " none-tab "} `}
-          onClick={handleShowTab}
+          className={` ${showChapter ? "tabbtn" : " none-tab "} `}
+          onClick={handleShowChapter}
         >
           Chapter
         </div>
         <div
-          className={` ${!showTab ? "tabbtn" : " none-tab "} `}
-          onClick={handleShowTab}
+          className={` ${showComment ? "tabbtn" : " none-tab "} `}
+          onClick={handleShowComment}
         >
           Comment
         </div>
       </div>
       <div>
-        {showTab && (
-          <div className="bg-[#000] flex py-[50px] px-[100px] justify-center">
-            <div className="bg-[#4A4A4A] py-[24px] px-[48px]">
-              <div className="flex items-center gap-2 font-semibold text-[22px] leading-[28px] text-white ">
+        {showChapter && (
+          <div className="bg-[#000] flex p-[18px] md:py-[50px] md:px-[140px] justify-center">
+            <div className="md:bg-[#4A4A4A] md:py-[24px] md:px-[48px]">
+              <div className=" hidden  md:flex items-center gap-2 font-semibold text-[22px] leading-[28px] text-white   ">
                 <img
                   src="/images/ChapterPage/jam_files-f.png"
                   alt=""
@@ -309,7 +317,7 @@ const ChapterPage = () => {
                 />
                 <div>278 Chapter</div>
               </div>
-              <div>
+              <div className="flex flex-col gap-5  ">
                 {sortedChapters
                   ?.slice(0, visibleChapterCount)
                   .map((chapter, index) => (
@@ -320,6 +328,13 @@ const ChapterPage = () => {
                         des={chapterDetail?.description}
                         poster={chapterDetail?.poster}
                         slug={slug}
+                        islogin={
+                          user.email
+                            ? true
+                            : !user?.mail && index > 5
+                            ? false
+                            : true
+                        }
                       />
                     </div>
                   ))}
@@ -337,7 +352,7 @@ const ChapterPage = () => {
         )}
       </div>
       <div>
-        {!showTab && (
+        {showComment && (
           <div>
             <MangaComments />
           </div>
