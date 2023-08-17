@@ -14,7 +14,7 @@ const Page_Recommended = () => {
         </h2>
       </div>
       <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 2xl:grid-cols-6 gap-x-[10px] gap-y-[20px] lg:gap-[20px] px-[16px] pb-[16px] sm:px-[20px] md:px-[25px] lg:px-[60px] lg:pb-[60px]">
-        {recommended.map((item, index) => (
+        {recommended?.map((item, index) => (
           <CardManga
             key={index}
             poster={item?.image_poster_link_goc}
