@@ -41,10 +41,7 @@ const router = createBrowserRouter([
                 path: "/contact-us",
                 element: <ContactUs />,
             },
-            {
-                path: "/user-profile",
-                element: <UserProfile />,
-            },
+            
             {
                 path: "newRelease",
                 element: <Page_NewRelease />,
@@ -78,6 +75,10 @@ const router = createBrowserRouter([
     {
         path: "/sign-up",
         element: <SignUp />,
+    },
+    {
+        path: "/user-profile",
+        element: <UserProfile />,
     },
 ]);
 export default router;

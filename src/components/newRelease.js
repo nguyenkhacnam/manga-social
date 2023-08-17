@@ -8,11 +8,11 @@ const NewRelease = () => {
   //   const firstFiveItem = newRelease.slice(0, 5);
 
   const mangaData = useSelector((store) => store.mangaData.mangaData);
-  const firstFiveItem = mangaData[1].data.slice(0, 5);
-  console.log("mangaData in new release", mangaData[1].data);
+  const firstFiveItem = mangaData[1]?.data.slice(0, 5);
+  console.log("mangaData in new release", mangaData[1]?.data);
   return (
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-[20px] px-[16px] pb-[16px] sm:px-[20px] md:px-[25px] lg:px-[60px] lg:pb-[60px]">
-      {firstFiveItem.map((item, index) => (
+      {firstFiveItem?.map((item, index) => (
         <CardManga
           key={index}
           poster={item?.image_poster_link_goc}
