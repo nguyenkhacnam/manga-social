@@ -9,7 +9,7 @@ const NewsComics = () => {
     return (
         <div className="flex gap-10 mb-[60px]">
             <div className="flex flex-col gap-8">
-                {dataSlice.map((item, index) => {
+                {dataSlice?.map((item, index) => {
                     if (index % 2 !== 0) {
                         return (
                             <NewsComicCard
@@ -23,8 +23,8 @@ const NewsComics = () => {
                     }
                 })}
             </div>
-            <div className="flex flex-col gap-10">
-                {dataSlice.map((item, index) => {
+            <div className="flex flex-col gap-5 lg:gap-10">
+                {dataSlice?.map((item, index) => {
                     if (index % 2 === 0) {
                         return (
                             <NewsComicCardSmall

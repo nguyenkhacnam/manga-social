@@ -5,7 +5,7 @@
     width: auto;
     height: auto;
     min-height: 500px;
-    margin-bottom: 400px;
+    margin-bottom: 350px;
     overflow: hidden;
     padding-bottom: 100px;
     @media screen and (min-width: 640px) {
@@ -18,7 +18,12 @@
         margin-bottom: 500px;
     }
 
+    .slick-dots ul {
+        list-style-type: none;
+    }
+
     .slick-dots li {
+        list-style-type: none;
         width: 16px;
         height: 16px;
         border-radius: 50%;

@@ -20,7 +20,7 @@ const SliderImg = ({ arrImage }) => {
     return (
         <div>
             <Slider {...settings}>
-                {arrImage.map((image, index) => {
+                {arrImage?.map((image, index) => {
                     return (
                         <Image
                             key={index}
