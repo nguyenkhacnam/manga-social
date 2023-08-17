@@ -18,76 +18,81 @@ import ChapterPage from "../pages/ChapterPage/ChapterPage";
 import ReadChapter from "../pages/ReadChapter/ReadChapter";
 import Page_Recommended from "../pages/Recommended/Recommended";
 import Page_Comedy from "../pages/Comedy/Comedy";
+import Nhap from "../pages/ChapterPage/nhap";
 const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <Layout />,
-        children: [
-            {
-                index: true,
-                element: <Index />,
-            },
-            {
-                path: "/comic",
-                element: <Page_comic />,
-            },
-            {
-                path: "/genres",
-                element: <Page_Genres />,
-            },
-            {
-                path: "/chapper",
-                element: <Page_chapper />,
-            },
-            {
-                path: "/contact-us",
-                element: <ContactUs />,
-            },
-            {
-                path: "/user-profile",
-                element: <UserProfile />,
-            },
-            {
-                path: "newRelease",
-                element: <Page_NewRelease />,
-            },
-            {
-                path: "recent",
-                element: <Page_Recent />,
-            },
-            {
-                path: "recommnended",
-                element: <Page_Recommended />,
-            },
-            {
-                path: "commingsoon",
-                element: <Page_Comming />,
-            },
-            {
-                path: "news",
-                element: <Page_News />,
-            },
-            {
-                path: "comedy",
-                element: <Page_Comedy />,
-            },
-            {
-                path: "chapter/:slug",
-                element: <ChapterPage />,
-            },
-            {
-                path: "chapter/:slug/:id",
-                element: <ReadChapter />,
-            },
-        ],
-    },
-    {
-        path: "/login",
-        element: <Login />,
-    },
-    {
-        path: "/sign-up",
-        element: <SignUp />,
-    },
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      {
+        index: true,
+        element: <Index />,
+      },
+      {
+        path: "/comic",
+        element: <Page_comic />,
+      },
+      {
+        path: "/genres",
+        element: <Page_Genres />,
+      },
+      {
+        path: "/chapper",
+        element: <Page_chapper />,
+      },
+      {
+        path: "/contact-us",
+        element: <ContactUs />,
+      },
+      {
+        path: "/user-profile",
+        element: <UserProfile />,
+      },
+      {
+        path: "newRelease",
+        element: <Page_NewRelease />,
+      },
+      {
+        path: "recent",
+        element: <Page_Recent />,
+      },
+      {
+        path: "recommnended",
+        element: <Page_Recommended />,
+      },
+      {
+        path: "commingsoon",
+        element: <Page_Comming />,
+      },
+      {
+        path: "news",
+        element: <Page_News />,
+      },
+      {
+        path: "comedy",
+        element: <Page_Comedy />,
+      },
+      {
+        path: "chapter/:slug",
+        element: <ChapterPage />,
+      },
+      {
+        path: "chapter/:slug/:id",
+        element: <ReadChapter />,
+      },
+    ],
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/sign-up",
+    element: <SignUp />,
+  },
+  {
+    path: "/nhap",
+    element: <Nhap />,
+  },
 ]);
 export default router;
