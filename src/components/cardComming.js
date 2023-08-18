@@ -13,10 +13,10 @@ const CardComming = ({ poster, title, rate, update }) => {
 
             <div className="text-white mt-2 lg:mt-3">
                 <div className="">
-                    <h3 className="text-[#FFFFFF] text-[12px] sm-[16px] md:text-[20px] lg:text-[26px] xl:text-[28px] leading-5 lg:leading-10 font-semibold overflow-hidden text-ellipsis whitespace-nowrap w-[120px] lg:w-[200px]">
+                    <h3 className="text-[#FFFFFF] text-[12px] sm-[16px] md:text-[20px] lg:text-[26px] xl:text-[28px] leading-5 md:leading-7 lg:leading-10 font-semibold overflow-hidden text-ellipsis whitespace-nowrap w-[120px] lg:w-[200px]">
                         {title}
                     </h3>
-                    <p className="text-[11px] sm-text-[13px] md:text-[15px] lg:text-[18px] xl:text-[20px] leading-4 lg:leading-8 font-semibold lg:mt-3">
+                    <p className="text-[11px] sm-text-[13px] md:text-[15px] lg:text-[18px] xl:text-[20px] leading-4 md:leading-6 lg:leading-8 font-semibold lg:mt-3">
                         Author:Takeshi
                     </p>
                 </div>

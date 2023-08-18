@@ -22,6 +22,7 @@ import { useEffect } from "react";
 import { getMangaData } from "../Redux/Feature/mangaData";
 import Recommended from "../components/recommended";
 import ComedyComics from "../components/comeryComics";
+import FreeComics from "../components/freeComics";
 export default function Index() {
     const mangaData = useSelector((store) => store.mangaData.mangaData);
     console.log("mangaData", mangaData);
@@ -114,13 +115,13 @@ export default function Index() {
                 <ComedyComics />
                 <div className="text-[14px] font-semibold sm:text-[18px] md:text-[24px] lg:text-[50px] flex items-center justify-between px-[16px] pb-[16px] sm:px-[20px] md:px-[25px] ">
                     <h2 className="text-[#FFFFFF]">Free Comics</h2>
-                    <Link>
+                    <Link to="freeComics">
                         <p className="text-[#FFFFFF] text-[12px] sm:text-[16px] md:text-[22px] lg:text-[32px] font-semibold ">
                             See all
                         </p>
                     </Link>
                 </div>
-                <ComicRecent></ComicRecent>
+                <FreeComics />
                 <div className="text-[14px] font-semibold sm:text-[18px] md:text-[24px] lg:text-[50px] flex items-center justify-between px-[16px] pb-[16px] sm:px-[20px] md:px-[25px] ">
                     <h2 className="text-[#FFFFFF]">News</h2>
                     <Link to="/news">
@@ -136,7 +137,12 @@ export default function Index() {
                 </div>
                 <Rank></Rank>
                 <div className="text-[14px] font-semibold sm:text-[18px] md:text-[24px] lg:text-[50px] flex items-center justify-between px-[16px] pb-[16px] sm:px-[20px] md:px-[25px] ">
-                    <h2 className="text-[#FFFFFF]">Comment</h2>
+                    <h2 className="text-[#FFFFFF]">Comments</h2>
+                    <Link to="/news">
+                        <p className="text-[#FFFFFF] text-[12px] sm:text-[16px] md:text-[22px] lg:text-[32px] font-semibold ">
+                            See all
+                        </p>
+                    </Link>
                 </div>
                 <Comments></Comments>
             </div>
