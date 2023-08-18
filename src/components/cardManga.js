@@ -1,11 +1,44 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { setComments, } from "../Redux/comments/commentsSlice";
 import { NavLink } from "react-router-dom";
 
 const CardManga = ({ poster, title, rate, update }) => {
+    const dispatch = useDispatch();
     const slug = title?.toLowerCase().replace(/ /g, "-") || "";
+    const [selectedManga, setSelectedManga] = useState(null)
+    const handleMangaSelect = (title) => {
+        const titleManga = title?.toLowerCase().replace(/ /g, "+") || "";
+        setSelectedManga(titleManga)
+        console.log('titleManga', titleManga)
+    }
+
+    useEffect(() => {
+        let isMounted = true
+        if (selectedManga) {
+            axios
+                .get(`http://14.225.7.221:7979/manga/${selectedManga}`)
+                .then((response) => {
+                    if (isMounted) {
+                        console.log(response.data.comments)
+                        dispatch(setComments(response.data.comments));
+                    }
+                })
+                .catch((error) => {
+                    console.error("Error fetching comments:", error);
+                });
+        }
+
+        return () => {
+            isMounted = false;
+        };
+    }, [selectedManga, dispatch]);
     return (
-        <NavLink to={`/chapter/${slug}`}>
-            <div className=" cursor-pointer">
+        <NavLink
+            to={`/chapter/${slug}`}
+        >
+            <div className=" cursor-pointer" onClick={() => handleMangaSelect(title)}>
                 <div className="ease-in-out duration-300 hover:scale-105 transition">
                     <img
                         className="w-[119px] h-[140px] sm:w-[140px] sm:h-[163px] md:w-[200px] md:h-[236px] lg:w-[255px] lg:h-[383px] rounded-[8px] lg:rounded-[12px]"

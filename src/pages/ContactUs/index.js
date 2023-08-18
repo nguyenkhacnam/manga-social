@@ -1,17 +1,17 @@
 import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
-import MangaComments from "../../components/MangaComments";
+import { Link, useNavigate } from "react-router-dom";
 function ContactUs() {
     const [image, setImage] = useState(null);
     const [userId, setUserId] = useState("");
     const [join, setJoin] = useState("");
+    const storedData = localStorage.getItem("persist:root");
+    const parsedData = JSON.parse(storedData);
+    const userData = JSON.parse(parsedData.user);
+    const idUser = userData.id_user;
+    const AuthToken = JSON.stringify(userData.jwt);
     useEffect(() => {
-        const storedData = localStorage.getItem("persist:root");
-        const parsedData = JSON.parse(storedData);
-        const userData = JSON.parse(parsedData.user);
-        const idUser = userData.id_user;
-        const AuthToken = JSON.stringify(userData.jwt);
         const fetchUserData = async () => {
             try {
                 const response = await fetch(
@@ -36,9 +36,13 @@ function ContactUs() {
                 console.error("Error fetching user data:", error);
             }
         };
-
         fetchUserData();
     }, []);
+    const history = useNavigate()
+    const handleLogOut = () => {
+        localStorage.removeItem("persist:root")
+        history('/login')
+    }
     return (
         <div className="bg-[#000000] w-full h-full">
             <div className="flex justify-center pt-10 mx-5">
@@ -90,14 +94,18 @@ function ContactUs() {
                             />
                             <p className="block ml-[8px]">Setting</p>
                         </div>
-                        <div className="flex justify-left items-center h-[52px] text-[#FC1010]">
-                            <img
-                                src="/images/ContactUs/Vector (2).png"
-                                alt=""
-                                className="w-[28px] h-[28px]"
-                            />
-                            <p className="block ml-[8px]">Logout</p>
-                        </div>
+                        <Link>
+                            <div className="flex justify-left items-center h-[52px] text-[#FC1010]"
+                                onClick={handleLogOut}
+                            >
+                                <img
+                                    src="/images/ContactUs/Vector (2).png"
+                                    alt=""
+                                    className="w-[28px] h-[28px]"
+                                />
+                                <p className="block ml-[8px]">Logout</p>
+                            </div>
+                        </Link>
                     </div>
                 </div>
                 <div className="col-span-2 h-[663px] w-[1103px] bg-[#292929] pl-6 text-[#fff]">

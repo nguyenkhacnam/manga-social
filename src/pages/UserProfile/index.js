@@ -2,6 +2,7 @@ import { Link, Outlet } from "react-router-dom";
 import ComicRecent from "../../components/comicRecent";
 import { useEffect, useState } from "react";
 import HeaderMobile from "../../components/HeaderMobile";
+import Comments from "../../components/comments";
 
 function UserProfile() {
     const [image, setImage] = useState(null)
@@ -85,6 +86,10 @@ function UserProfile() {
                 <div>
                     <div className="text-6xl text-white mb-10"><Link to="" >Recent Read Comics</Link></div>
                     <div className=""><ComicRecent /></div>
+                </div>
+                <div>
+                    <div className="text-6xl text-white mb-10"><Link to="" >Comments</Link></div>
+                    <div className=""><Comments /></div>
                 </div>
             </div>
         </div>
