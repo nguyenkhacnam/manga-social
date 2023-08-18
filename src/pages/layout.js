@@ -1,9 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, Outlet, json } from "react-router-dom";
+import { Link, Outlet, json, useLocation } from "react-router-dom";
+import { BiSolidHome, BiSolidNews, BiSolidUser } from "react-icons/bi";
+import { RiSettingsFill } from "react-icons/ri";
+
 export default function Layout({ home }) {
     const [isHovered, setIsHovered] = useState(false);
     const [isServerHovered, setIsServerHovered] = useState(false);
+    const location = useLocation();
 
     //handle search
     const [input, setInput] = useState("");
@@ -214,31 +218,35 @@ export default function Layout({ home }) {
             </div>
 
             {/* Nav bar mobile */}
-            <div className="w-full h-[60px] fixed z-50 bottom-0 bg-[#F45F17] lg:hidden">
-                <div className="flex items-center justify-between">
-                    <div className="flex items-center justify-center">
+            <div className="flex items-center justify-center w-full h-[60px] md:h-[80px] fixed z-50 bottom-0 md:bottom-[-1px] bg-[#F45F17] lg:hidden">
+                <div className="flex items-center justify-between w-full px-[30px] md:px-[100px]">
+                    <div className="">
                         <Link to="/">
-                            <div className="flex flex-col items-center justify-center">
-                                <img
-                                    className="w-[20px] h-[20px] text-[#FFFFFF]"
-                                    src="/images/home.svg"
-                                    alt=""
-                                />
-                                <p className="text-[#FFFFFF] lg:text-[18px] xl:text-[20px] hover:text-[#f45f17] font-semibold whitespace-nowrap">
+                            <div
+                                className={`flex flex-col items-center justify-center ${
+                                    location.pathname === "/"
+                                        ? "bg-[#FFFFFF] p-[8px] md:px-[12px] md:py-[8px] rounded-full text-[#F45F17] mb-[40px] border-[4px] border-[#F45F17]"
+                                        : "text-[#FFFFFF]"
+                                }`}
+                            >
+                                <BiSolidHome className="w-[20px] h-[20px] md:w-[30px] md:h-[30px]" />
+                                <p className="text-[13px] md:text-[18px] font-semibold">
                                     Home
                                 </p>
                             </div>
                         </Link>
                     </div>
-                    <div className="flex items-center justify-center">
+                    <div className="">
                         <Link to="/news">
-                            <div className="flex flex-col items-center">
-                                <img
-                                    className="w-[20px] h-[20px]"
-                                    src="/images/news.svg"
-                                    alt=""
-                                />
-                                <p className="text-[#FFFFFF] lg:text-[18px] xl:text-[20px] hover:text-[#f45f17] font-semibold whitespace-nowrap">
+                            <div
+                                className={`flex flex-col items-center justify-center ${
+                                    location.pathname === "/news"
+                                        ? "bg-[#FFFFFF] p-[8px] md:px-[12px] md:py-[8px] rounded-full text-[#F45F17] mb-[40px] border-[4px] border-[#F45F17]"
+                                        : "text-[#FFFFFF]"
+                                }`}
+                            >
+                                <BiSolidNews className="w-[20px] h-[20px] md:w-[30px] md:h-[30px]" />
+                                <p className=" text-[13px] md:text-[18px] font-semibold">
                                     News
                                 </p>
                             </div>
@@ -246,27 +254,31 @@ export default function Layout({ home }) {
                     </div>
                     <div>
                         <Link to="/genres">
-                            <div className="flex flex-col items-center">
-                                <img
-                                    className="w-[20px] h-[20px]"
-                                    src="/images/genres.svg"
-                                    alt=""
-                                />
-                                <p className="text-[#FFFFFF] lg:text-[18px] xl:text-[20px] hover:text-[#f45f17] font-semibold whitespace-nowrap">
+                            <div
+                                className={`flex flex-col items-center justify-center ${
+                                    location.pathname === "/genres"
+                                        ? "bg-[#FFFFFF] p-[8px] md:px-[12px] md:py-[12px] rounded-full text-[#F45F17] mb-[40px] border-[4px] border-[#F45F17]"
+                                        : "text-[#FFFFFF]"
+                                }`}
+                            >
+                                <RiSettingsFill className="w-[20px] h-[20px] md:w-[30px] md:h-[30px]" />
+                                <p className=" text-[13px] md:text-[18px] font-semibold">
                                     Genres
                                 </p>
                             </div>
                         </Link>
                     </div>
                     <div>
-                        <Link to="/">
-                            <div className="flex flex-col items-center">
-                                <img
-                                    className="w-[20px] h-[20px]"
-                                    src="/images/profile.svg"
-                                    alt=""
-                                />
-                                <p className="text-[#FFFFFF] lg:text-[18px] xl:text-[20px] hover:text-[#f45f17] font-semibold whitespace-nowrap">
+                        <Link to="/user-profile">
+                            <div
+                                className={`flex flex-col items-center justify-center ${
+                                    location.pathname === "/user-profile"
+                                        ? "bg-[#FFFFFF] p-[8px] md:px-[12px] md:py-[8px] rounded-full text-[#F45F17] mb-[40px] border-[4px] border-[#F45F17]"
+                                        : "text-[#FFFFFF]"
+                                }`}
+                            >
+                                <BiSolidUser className="w-[20px] h-[20px] md:w-[30px] md:h-[30px]" />
+                                <p className=" text-[13px] md:text-[18px] font-semibold">
                                     Profile
                                 </p>
                             </div>
