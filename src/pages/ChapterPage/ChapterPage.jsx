@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./ChapterPage.scss";
+import "./ChapterPage.css";
 import ChapterCard from "../../components/ChapterCard/ChapterCard";
 import axios from "axios";
 import { NavLink, useParams } from "react-router-dom";
