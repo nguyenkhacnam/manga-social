@@ -1,7 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
-import "./ChapterCard.scss";
 
 const ChapterCard = ({ chapter, title, poster, des, slug, islogin }) => {
   const lastDashIndex = chapter.lastIndexOf("/chapter-");
@@ -40,8 +39,12 @@ const ChapterCard = ({ chapter, title, poster, des, slug, islogin }) => {
               )}
             </div>
             <div>
-              <div className="title-cardChapter">{title}</div>
-              <div className=" title-cardChapter ">{chapterNumber}</div>
+              <div className="font-semibold text-[12px] leading-[16px] text-white md:text-[15px] md:leading-[18px] lg:text-[18px] 2xl:text-[24px] 2xl:leading-[32px]">
+                {title}
+              </div>
+              <div className=" font-semibold text-[12px] leading-[16px] text-white md:text-[15px] md:leading-[18px] lg:text-[18px] 2xl:text-[24px] 2xl:leading-[32px] ">
+                {chapterNumber}
+              </div>
               <div className=" font-semibold text-[12px] leading-[16px] md:text-[14px] md:leading-[18px] 2xl:text-[22px] 2xl:leading-[28px] text-white ">
                 12/07/2023
               </div>
