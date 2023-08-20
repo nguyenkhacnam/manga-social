@@ -1,161 +1,30 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
-import prodApis from "../api/home";
+import UserCard from "./userCard";
+import { useSelector } from "react-redux";
+
 const NewUsers = () => {
-    const [newUser, setNewUser] = useState([]);
-    useEffect(() => {
-        getNewUser();
-    }, []);
-    const getNewUser = async () => {
-        // (async () => {
-        //     const newsResponse = await prodApis.index();
-
-        //     setNewUser(newsResponse.data.User_New_Register);
-        // })();
-        const newsResponse = await prodApis.index();
-        setNewUser(newsResponse.data[12].data);
-    };
-
+    const mangaData = useSelector((store) => store.mangaData.mangaData);
+    const newUsers = mangaData[12]?.data;
     return (
-        <>
+        <div className="flex flex-col items-center bg-[#323232] px-[12px] py-[8px] lg:px-[60px] lg:py-[20px] lg:mr-[60px] rounded-[12px]">
+            <h2 className="text-[#888] text-[14px] sm:text-[18px] md:text-[24px] lg:text-[30px] font-bold lg:pb-[20px]">
+                NEW USER
+            </h2>
             <div>
-                <div className="news-right">
-                    <div className="wrap-right-note">
-                        <div className="lab">
-                            <label>NEW USER</label>{" "}
-                        </div>
-                        {newUser &&
-                            newUser.map((newUser, index) => {
-                                return (
-                                    <>
-                                        {" "}
-                                        <div className="username" key={index}>
-                                            <img
-                                                className="avatar"
-                                                src="/images/usersquare.svg"
-                                                alt="avatar"
-                                            />
-                                            <span className="text-avatar">
-                                                {newUser.name_user}
-                                            </span>
-                                            <span className="date-text">
-                                                {newUser.participation_time}
-                                            </span>
-                                        </div>
-                                    </>
-                                );
-                            })}
-
-                        <p className="seemore">See more</p>
-                    </div>
-                </div>
-                <div className="news-right">
-                    <div className="wrap-right-note">
-                        <div className="username">
-                            <img
-                                className="avatar"
-                                src="/images/usersquare.svg"
-                                alt="avatar"
-                            />
-                            <span className="text-avatar">User Name</span>
-                            <span className="date-text">Has read</span>
-                            <Link>
-                                <span
-                                    style={{
-                                        fontSize: "22px",
-                                        color: "rgba(79, 64, 248, 1)",
-                                        marginLeft: "9px",
-                                        fontWeight: "600",
-                                        textDecoration: "underline",
-                                    }}
-                                >
-                                    Death Note
-                                </span>{" "}
-                            </Link>
-                            <span
-                                style={{
-                                    color: "rgba(73, 110, 241, 1)",
-                                    fontSize: "22px",
-                                    fontWeight: "600",
-                                    marginLeft: "12px",
-                                }}
-                            >
-                                4 min
-                            </span>
-                        </div>
-
-                        <div className="username">
-                            <img
-                                className="avatar"
-                                src="/images/usersquare.svg"
-                                alt="avatar"
-                            />
-                            <span className="text-avatar">User Name</span>
-                            <span className="date-text">Has read</span>
-                            <Link>
-                                <span
-                                    style={{
-                                        fontSize: "22px",
-                                        color: "rgba(79, 64, 248, 1)",
-                                        marginLeft: "9px",
-                                        fontWeight: "600",
-                                        textDecoration: "underline",
-                                    }}
-                                >
-                                    Death Note
-                                </span>{" "}
-                            </Link>
-                            <span
-                                style={{
-                                    color: "rgba(73, 110, 241, 1)",
-                                    fontSize: "22px",
-                                    fontWeight: "600",
-                                    marginLeft: "12px",
-                                }}
-                            >
-                                4 min
-                            </span>
-                        </div>
-
-                        <div className="username">
-                            <img
-                                className="avatar"
-                                src="/images/usersquare.svg"
-                                alt="avatar"
-                            />
-                            <span className="text-avatar">User Name</span>
-                            <span className="date-text">Has read</span>
-                            <Link>
-                                <span
-                                    style={{
-                                        fontSize: "22px",
-                                        color: "rgba(79, 64, 248, 1)",
-                                        marginLeft: "9px",
-                                        fontWeight: "600",
-                                        textDecoration: "underline",
-                                    }}
-                                >
-                                    Death Note
-                                </span>{" "}
-                            </Link>
-                            <span
-                                style={{
-                                    color: "rgba(73, 110, 241, 1)",
-                                    fontSize: "22px",
-                                    fontWeight: "600",
-                                    marginLeft: "12px",
-                                }}
-                            >
-                                4 min
-                            </span>
-                        </div>
-
-                        <p className="seemore">See more</p>
-                    </div>
-                </div>
+                {newUsers?.map((user, index) => (
+                    <UserCard
+                        key={index}
+                        avatar={user.avatar_user}
+                        name={user.name_user}
+                        time={user.participation_time}
+                    />
+                ))}
             </div>
-        </>
+            <div></div>
+            <p className="text-[#7A7A7A] text-[12px] sm:text-[16px] md:text-[24px] lg:text-[26px] font-semibold lg:pt-[20px]">
+                See more
+            </p>
+        </div>
     );
 };
 
