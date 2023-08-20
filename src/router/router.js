@@ -36,7 +36,6 @@ const router = createBrowserRouter([
         path: "/genres",
         element: <Page_Genres />,
       },
-
       {
         path: "/contact-us",
         element: <ContactUs />,
