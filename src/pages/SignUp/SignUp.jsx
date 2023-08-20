@@ -71,12 +71,17 @@ const SignUp = () => {
 
   return (
     <div
-      className="bg-cover bg-center h-[100vh] w-[100vw] md:h-[100%] md:w-[100%] flex items-center justify-center "
+      className="bg-cover bg-center h-screen w-[100%] flex items-center justify-center "
       style={{
-        backgroundImage: "url('/images/Login/slide1.jpg')",
+        background: `
+      linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), 
+      linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), 
+      linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), 
+      linear-gradient(2deg, #000 0%, rgba(0, 0, 0, 0.00) 100%),
+      url('/images/Login/slide1.jpg') lightgray 50% / cover no-repeat `,
       }}
     >
-      <div className=" flex flex-col items-center justify-center md:w-[520px] md:h-[746px] rounded-[12px] gap-[31px] md:bg-[#242424] mt-[20px] md:mt-[100px] md:mb-[100px] px-[15px] md:px-[74px] py-[60px]">
+      <div className=" flex flex-col items-center justify-center rounded-[12px] gap-[31px] py-[60px] px-[15px] md:w-[420px] md:h-[546px] md:my-[100px] md:bg-[#242424] md:px-[44px] 2xl:w-[520px] 2xl:h-[746px]  2xl:px-[74px]">
         <div className="font-semibold text-3xl text-white mb-4">SignUp</div>
         <div className=" text-[14px] leading-[20px] md:text-[24px] md:leading-[28px] font-semibold text-white text-center">
           Create a new accont our you can log in
@@ -142,24 +147,26 @@ const SignUp = () => {
             </Button>
           </Form.Item>
         </Form>
-        <div className="flex items-center justify-center gap-0.5  ">
-          <div className="font-semibold text-[12px] leading-[16px] md:text-[16px] md:leading-[24px] text-white ">
-            By selecting “ SIGN IN”, you agree to
+        <div className="flex flex-col gap-[200px] md:gap-[20px] ">
+          <div className="flex items-center justify-center gap-0.5 md:gap-2 ">
+            <div className="font-semibold text-[12px] leading-[16px] md:text-[13px] md:leading-[24px] text-white ">
+              By selecting “ SIGN IN”, you agree to
+            </div>
+            <div className="font-semibold text-[12px] leading-[16px] md:text-[13px] md:leading-[24px] text-[#EA6016] ">
+              OUR POLICIES
+            </div>
           </div>
-          <div className="font-semibold text-[12px] leading-[16px] md:text-[16px] md:leading-[24px] text-[#EA6016] ">
-            OUR POLICIES
-          </div>
-        </div>
 
-        <div className="flex items-center justify-center gap-1.5 mt-40 md:mt-0">
-          <div className="font-semibold text-[16px] leading-[24px] text-[#747474] ">
-            Already have an account?
-          </div>
-          <div
-            className="font-semibold text-[16px] leading-[24px] text-[#EA6016] cursor-pointer "
-            onClick={HandleNavigateToLogin}
-          >
-            Log in
+          <div className="flex items-center justify-center gap-1.5  md:mt-0">
+            <div className="font-semibold text-[16px] leading-[24px] text-[#747474] ">
+              Already have an account?
+            </div>
+            <div
+              className="font-semibold text-[16px] leading-[24px] text-[#EA6016] cursor-pointer "
+              onClick={HandleNavigateToLogin}
+            >
+              Log in
+            </div>
           </div>
         </div>
       </div>
