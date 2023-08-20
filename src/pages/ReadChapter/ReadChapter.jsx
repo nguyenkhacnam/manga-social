@@ -26,17 +26,22 @@ const ReadChapter = () => {
   }, [slug, id]);
 
   return (
-    <div className="flex flex-col items-center justify-center  ">
-      {imageChapters?.map((imageChapter, index) => (
-        <div key={index}>
-          <img
-            src={imageChapter}
-            alt=""
-            className="h-[100%] w-[100%] bg-cover object-cover mt-2 "
-          />
-          <hr />
-        </div>
-      ))}
+    <div>
+      <div>
+        
+      </div>
+      <div className="flex flex-col items-center justify-center  ">
+        {imageChapters?.map((imageChapter, index) => (
+          <div key={index}>
+            <img
+              src={imageChapter}
+              alt=""
+              className="h-[100%] w-[100%] bg-cover object-cover mt-2 "
+            />
+            <hr />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

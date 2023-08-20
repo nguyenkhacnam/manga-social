@@ -87,7 +87,7 @@ const ChapterPage = () => {
   return (
     <div>
       <div
-        className={`w-[100%] min-h-[100px] bg-cover bg-center bg-no-repeat lg:flex lg:gap-30 px-[14px] pt-[14px] lg:px-[141px] lg:py-[48px] gap-10`}
+        className={`w-[100%] min-h-[100px] bg-cover bg-center bg-no-repeat px-[14px] pt-[14px] gap-10 lg:flex lg:gap-5  lg:px-[100px] lg:py-[48px]  2xl:flex 2xl:gap-30  2xl:px-[141px] 2xl:py-[48px] `}
         style={{
           backgroundImage: "url('/images/ChapterPage/bia.png')",
           backgroundRepeat: "no-repeat",
@@ -100,9 +100,9 @@ const ChapterPage = () => {
           <img
             src={chapterDetail?.poster}
             alt=""
-            className=" h-[203px] w-[100%] md:h-[406px] lg:h-[649px] lg:w-[433px] bg-cover object-cover rounded-[8px]"
+            className=" h-[203px] w-[100%] md:h-[406px] lg:h-[450px] 2xl:h-[649px] 2xl:w-[433px] bg-cover object-cover rounded-[8px]"
           />
-          <div className="absolute top-0 right-5  hidden md:block lg:block ">
+          <div className="absolute top-0 right-5  hidden  2xl:block ">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="118"
@@ -139,7 +139,7 @@ const ChapterPage = () => {
               </svg>
             </svg>
           </div>
-          <div className="absolute top-0 left-0 hidden  lg:block ">
+          <div className="absolute top-0 left-0 hidden  2xl:block ">
             <div className="relative ">
               <img
                 src="/images/ChapterPage/Star 1.png"
@@ -152,7 +152,7 @@ const ChapterPage = () => {
             </div>
           </div>
           <div className="absolute bottom-2 left-2  ">
-            <p className="w-[223px] text-[11px] font-medium leading-[16px] text-white md:w-[500px] md:text-[20px] md:leading-[24px]  lg:w-[747px] lg:font-normal lg:text-[28px] lg:leading-[36px]  lg:hidden ">
+            <p className="w-[223px] text-[11px] font-medium leading-[16px] text-white md:w-[500px] md:text-[20px] md:leading-[24px]  lg:hidden 2xl:hidden ">
               {showFullDescription ? fullDescription : truncatedDescription}
               {!showFullDescription && (
                 <button onClick={() => setShowFullDescription(true)}>
@@ -162,11 +162,11 @@ const ChapterPage = () => {
             </p>
           </div>
         </div>
-        <div className="flex flex-col gap-[8px] lg:gap-5 ">
-          <div className="flex flex-col gap-[8px] lg:gap-[40px]">
+        <div className="flex flex-col gap-[8px] 2xl:gap-5 ">
+          <div className="flex flex-col gap-[8px] lg:gap-[20px] 2xl:gap-[40px]">
             {/* name && tương tác */}
-            <div className="flex flex-col gap-[8px] lg:gap-[21px] mt-3 lg:mt-0 ">
-              <div className="font-semibold text-[14px] leading-[20px] text-white md:text-[25px] md:leading-[30px] lg:text-[45px] lg:leading-[52px] ">
+            <div className="flex flex-col gap-[8px] lg:gap-[15px] 2xl:gap-[21px] mt-3 lg:mt-0 2xl:mt-0 ">
+              <div className="font-semibold text-[14px] leading-[20px] text-white md:text-[25px] md:leading-[30px] lg:text-[35px] 2xl:text-[45px] 2xl:leading-[52px] ">
                 {chapterDetail?.title}
               </div>
               {/* tương tác */}
@@ -175,15 +175,15 @@ const ChapterPage = () => {
                   <img
                     src="/images/ChapterPage/carbon_view-filled.png"
                     alt=""
-                    className="h-[32px] w-[32px] hidden lg:block "
+                    className="h-[32px] w-[32px] hidden lg:block 2xl:block "
                   />
                   <div>{viewsPart}</div>
                 </div>
                 <div className="text-social-chapterpage ">
                   <img
-                    src="/images/ChapterPage/lgi_like.png"
+                    src="/images/ChapterPage/mdi_like.png"
                     alt=""
-                    className="h-[32px] w-[32px] hidden lg:block"
+                    className="h-[32px] w-[32px] hidden lg:block 2xl:block"
                   />
                   <div>27.8K like</div>
                 </div>
@@ -191,15 +191,15 @@ const ChapterPage = () => {
                   <img
                     src="/images/ChapterPage/jam_files-f.png"
                     alt=""
-                    className="h-[32px] w-[32px] hidden lg:block"
+                    className="h-[32px] w-[32px] hidden lg:block 2xl:block"
                   />
                   <div>{`${chapterDetail?.chapters.length} chapter `} </div>
                 </div>
               </div>
             </div>
-            <div className="flex flex-col gap-[8px] lg:gap-[40px] lg:flex-col-reverse ">
+            <div className="flex flex-col gap-[8px] lg:gap-[30px] lg:flex-col-reverse  2xl:gap-[40px] 2xl:flex-col-reverse ">
               {/* info chapter */}
-              <div className="flex flex-col gap-[8px] lg:gap-[16px]">
+              <div className="flex flex-col gap-[8px] 2xl:gap-[16px]">
                 <div className="info-chapterpage">
                   Author:
                   <div className="text-white">{chapterDetail?.author}</div>
@@ -220,10 +220,10 @@ const ChapterPage = () => {
                 </div>
               </div>
               {/* server && button */}
-              <div className="flex flex-col gap-[16px] lg:gap-[40px] lg:flex-col-reverse">
+              <div className="flex flex-col gap-[16px] lg:gap-[20px] lg:flex-col-reverse 2xl:gap-[40px] 2xl:flex-col-reverse">
                 {/* chọn server */}
                 <div className="flex flex-col gap-[10px]">
-                  <div className=" font-bold text-[12px] leading-[16px] md:text-[15px] md:leading-[20px] lg:text-[28px] lg:leading-[36px] text-white ">
+                  <div className=" font-bold text-[12px] leading-[16px] md:text-[15px] md:leading-[20px] ld:text-[20px] 2xl:text-[28px] 2xl:leading-[36px] text-white ">
                     Server
                   </div>
                   <div className="flex flex-wrap items-center gap-5 ">
@@ -273,30 +273,30 @@ const ChapterPage = () => {
                 {/* button */}
                 <div className="flex  gap-5">
                   <NavLink to={`/chapter/${slug}/${chapterNumber}`}>
-                    <button className=" min-h-[32px] p-[8px]  rounded-[12px] md:px-[35px] md:py-[15px] lg:px-[52px] lg:py-[26px]  bg-[#FF2020]  text-white lg:rounded-[67px] ">
-                      <div className="font-bold text-[12px] leading-[16px] md:text-[20px] lg:text-[36px] lg:leading-[44px] ">
+                    <button className=" min-h-[32px] p-[8px]  rounded-[12px] md:px-[35px] md:py-[15px] md:rounded-[20px] 2xl:px-[52px] 2xl:py-[26px]  bg-[#FF2020]  text-white 2xl:rounded-[67px] ">
+                      <div className="font-bold text-[12px] leading-[16px] md:text-[20px] 2xl:text-[36px] 2xl:leading-[44px] ">
                         Read now
                       </div>
                     </button>
                     <img src="" alt="" />
                   </NavLink>
 
-                  <button className=" min-h-[32px] p-[8px]  rounded-[12px] text-black md:px-[35px] md:py-[15px] lg:px-[52px] lg:py-[26px]   bg-[#496EF1]  lg:text-white lg:rounded-[67px]">
-                    <div className="font-bold text-[12px] leading-[16px] md:text-[20px] lg:text-[36px] lg:leading-[44px] flex items-center gap-[4px] lg:gap-3 ">
+                  <button className=" min-h-[32px] p-[8px]  rounded-[12px] text-black md:px-[35px] md:py-[15px] md:rounded-[20px] lg:text-white 2xl:px-[52px] 2xl:py-[26px]  bg-[#496EF1]  2xl:text-white 2xl:rounded-[67px]">
+                    <div className="font-bold text-[12px] leading-[16px] md:text-[20px] 2xl:text-[36px] 2xl:leading-[44px] flex items-center gap-[4px] 2xl:gap-3 ">
                       <div> My List </div>
                       <img
-                        src="/manga_commic/public/images/ChapterPage/uil_plus.png"
+                        src="/images/ChapterPage/uil_plus.png"
                         alt=""
-                        className="h-[15px] w-[15px]  lg:h-[48px] lg:w-[48px] bg-cover object-cover "
+                        className="h-[15px] w-[15px]  2xl:h-[48px] 2xl:w-[48px] bg-cover object-cover "
                       />
                     </div>
                   </button>
-                  <button className=" min-h-[32px] p-[8px]  rounded-[12px] md:px-[35px] md:py-[15px] lg:px-[52px] lg:py-[26px] bg-[#F45F17]  text-white lg:rounded-[67px]">
-                    <div className="font-bold text-[12px] leading-[16px] md:text-[20px] lg:text-[36px] lg:leading-[44px] flex items-center gap-[4px] lg:gap-3 ">
+                  <button className=" min-h-[32px] p-[8px]  rounded-[12px] md:px-[35px] md:py-[15px] md:rounded-[20px] 2xl:px-[52px] 2xl:py-[26px] bg-[#F45F17]  text-white 2xl:rounded-[67px]">
+                    <div className="font-bold text-[12px] leading-[16px] md:text-[20px] 2xl:text-[36px] 2xl:leading-[44px] flex items-center gap-[4px] 2xl:gap-3 ">
                       <div>Rate</div>
                       <img
                         src="/images/ChapterPage/Star 3.png"
-                        className="h-[15px] w-[15px] lg:h-[48px] lg:w-[48px] bg-cover object-cover"
+                        className="h-[15px] w-[15px] 2xl:h-[48px] 2xl:w-[48px] bg-cover object-cover"
                         alt=""
                       />
                     </div>
@@ -307,7 +307,7 @@ const ChapterPage = () => {
           </div>
           {/* desc */}
           <div>
-            <p className="w-[223px]  text-[11px] font-medium leading-[16px]  lg:w-[747px] lg:font-normal lg:text-[28px] lg:leading-[36px] text-white hidden lg:block ">
+            <p className="w-[223px]  text-[11px] font-medium leading-[16px] text-white hidden lg:w-[500px] lg:font-normal lg:text-[20px] lg:leading-[25px]  lg:block  2xl:w-[747px] 2xl:font-normal 2xl:text-[28px] 2xl:leading-[36px]  2xl:block ">
               {showFullDescription ? fullDescription : truncatedDescription}
               {!showFullDescription && (
                 <button onClick={() => setShowFullDescription(true)}>
@@ -319,7 +319,7 @@ const ChapterPage = () => {
         </div>
       </div>
 
-      <div className="py-[12px] flex items-center justify-center gap-[65px] lg:gap-[87px] bg-[#3C3B38]">
+      <div className="py-[12px] flex items-center justify-center  gap-[65px] lg:gap-[75px] 2xl:gap-[87px] bg-[#3C3B38]">
         <div
           className={` ${showChapter ? "tabbtn" : " none-tab "} `}
           onClick={handleShowChapter}
@@ -335,9 +335,9 @@ const ChapterPage = () => {
       </div>
       <div>
         {showChapter && (
-          <div className="bg-[#000] flex p-[18px] lg:py-[50px] lg:px-[140px] justify-center">
-            <div className="lg:bg-[#4A4A4A] lg:py-[24px] lg:px-[48px]">
-              <div className=" hidden  lg:flex items-center gap-2 font-semibold text-[22px] leading-[28px] text-white   ">
+          <div className="bg-[#000] flex p-[18px] justify-center lg:py-[50px] lg:px-[100px] 2xl:py-[50px] 2xl:px-[140px] ">
+            <div className=" lg:bg-[#4A4A4A] lg:py-[24px] lg:px-[20px] 2xl:bg-[#4A4A4A] 2xl:py-[24px] 2xl:px-[48px]">
+              <div className=" hidden items-center text-white  font-semibold gap-2 lg:flex lg:mb-2 2xl:mb-2  2xl:flex 2xl:text-[22px] 2xl:leading-[28px] ">
                 <img
                   src="/images/ChapterPage/jam_files-f.png"
                   alt=""
@@ -369,7 +369,7 @@ const ChapterPage = () => {
               </div>
               <div className="text-center mt-5">
                 <button
-                  className="font-semibold text-[12px] leading-[16px] lg:text-[32px] lg:leading-[40px] text-white  "
+                  className="font-semibold text-[12px] leading-[16px] lg:text-[20px] 2xl:text-[32px] 2xl:leading-[40px] text-white  "
                   onClick={handleSeeMore}
                 >
                   See More

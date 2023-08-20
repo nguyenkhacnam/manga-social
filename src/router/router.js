@@ -4,7 +4,6 @@ import Index from "../pages";
 import Page_comic from "../pages/comic/comic";
 
 import Page_Genres from "../pages/Genres/Genres";
-import Page_chapper from "../pages/Chapper/chapper";
 import { createBrowserRouter } from "react-router-dom";
 import UserProfile from "../pages/UserProfile";
 import ContactUs from "../pages/ContactUs";
@@ -21,84 +20,80 @@ import Page_Comedy from "../pages/Comedy/Comedy";
 import Nhap from "../pages/ChapterPage/nhap";
 import Page_FreeComics from "../pages/FreeComics/FreeComics";
 const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <Layout />,
-        children: [
-            {
-                index: true,
-                element: <Index />,
-            },
-            {
-                path: "/comic",
-                element: <Page_comic />,
-            },
-            {
-                path: "/genres",
-                element: <Page_Genres />,
-            },
-            {
-                path: "/chapper",
-                element: <Page_chapper />,
-            },
-            {
-                path: "/contact-us",
-                element: <ContactUs />,
-            },
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      {
+        index: true,
+        element: <Index />,
+      },
+      {
+        path: "/comic",
+        element: <Page_comic />,
+      },
+      {
+        path: "/genres",
+        element: <Page_Genres />,
+      },
+      {
+        path: "/contact-us",
+        element: <ContactUs />,
+      },
 
-            {
-                path: "newRelease",
-                element: <Page_NewRelease />,
-            },
-            {
-                path: "recent",
-                element: <Page_Recent />,
-            },
-            {
-                path: "recommnended",
-                element: <Page_Recommended />,
-            },
-            {
-                path: "commingsoon",
-                element: <Page_Comming />,
-            },
-            {
-                path: "news",
-                element: <Page_News />,
-            },
-            {
-                path: "comedy",
-                element: <Page_Comedy />,
-            },
-            {
-                path: "freeComics",
-                element: <Page_FreeComics />,
-            },
-            {
-                path: "chapter/:slug",
-                element: <ChapterPage />,
-            },
-            {
-                path: "chapter/:slug/:id",
-                element: <ReadChapter />,
-            },
-        ],
-    },
-    {
-        path: "/login",
-        element: <Login />,
-    },
-    {
-        path: "/sign-up",
-        element: <SignUp />,
-    },
-    {
-        path: "/user-profile",
-        element: <UserProfile />,
-    },
-    {
-        path: "/nhap",
-        element: <Nhap />,
-    },
+      {
+        path: "newRelease",
+        element: <Page_NewRelease />,
+      },
+      {
+        path: "recent",
+        element: <Page_Recent />,
+      },
+      {
+        path: "recommnended",
+        element: <Page_Recommended />,
+      },
+      {
+        path: "commingsoon",
+        element: <Page_Comming />,
+      },
+      {
+        path: "news",
+        element: <Page_News />,
+      },
+      {
+        path: "comedy",
+        element: <Page_Comedy />,
+      },
+      {
+        path: "freeComics",
+        element: <Page_FreeComics />,
+      },
+      {
+        path: "chapter/:slug",
+        element: <ChapterPage />,
+      },
+      {
+        path: "chapter/:slug/:id",
+        element: <ReadChapter />,
+      },
+    ],
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/sign-up",
+    element: <SignUp />,
+  },
+  {
+    path: "/user-profile",
+    element: <UserProfile />,
+  },
+  {
+    path: "/nhap",
+    element: <Nhap />,
+  },
 ]);
 export default router;

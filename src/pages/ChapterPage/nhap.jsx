@@ -9,9 +9,9 @@ const Nhap = () => {
   return (
     <div>
       <div className="flex ga-10 ">
-        <div>dalksjhgdasjkhdasd</div>
+        <div>anh</div>
         <div>
-          <div>djkalsghdkalshjdgajd</div>
+          <div>ten</div>
           <div className="min-h-[20px] w-[200px] bg-black text-white">
             <div>dakjshkgda</div>
             <div>dlkjahkgsjdaksd</div>
