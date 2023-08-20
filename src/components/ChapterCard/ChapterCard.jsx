@@ -39,19 +39,8 @@ const ChapterCard = ({ chapter, title, poster, des, slug, islogin }) => {
               )}
             </div>
             <div>
-<<<<<<< HEAD
-              <div className="font-semibold text-[12px] leading-[16px] text-white md:text-[15px] md:leading-[18px] lg:text-[18px] 2xl:text-[24px] 2xl:leading-[32px];">
-                {title}
-              </div>
-              <div className=" font-semibold text-[12px] leading-[16px] text-white md:text-[15px] md:leading-[18px] lg:text-[18px] 2xl:text-[24px] 2xl:leading-[32px]; ">
-=======
-              <div className="font-semibold text-[12px] leading-[16px] text-white md:text-[15px] md:leading-[18px] lg:text-[18px] 2xl:text-[24px] 2xl:leading-[32px]">
-                {title}
-              </div>
-              <div className=" font-semibold text-[12px] leading-[16px] text-white md:text-[15px] md:leading-[18px] lg:text-[18px] 2xl:text-[24px] 2xl:leading-[32px] ">
->>>>>>> 26e29f423a050c7cf8f537c446b5d1446b124fc5
-                {chapterNumber}
-              </div>
+              <div className="">{title}</div>
+              <div className="">{chapterNumber}</div>
               <div className=" font-semibold text-[12px] leading-[16px] md:text-[14px] md:leading-[18px] 2xl:text-[22px] 2xl:leading-[28px] text-white ">
                 12/07/2023
               </div>
