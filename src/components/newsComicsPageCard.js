@@ -5,7 +5,7 @@ const NewsComicsPageCard = ({ des, poster, num_comment, title, time }) => {
         <div className="">
             <div className="relative">
                 <img
-                    className="h-[138px] md:h-[200px] lg:h-[300px] object-cover rounded-[12px]"
+                    className="w-full h-[138px] md:h-[200px] lg:h-[300px] object-cover rounded-[12px]"
                     src={poster}
                     alt=""
                 />
