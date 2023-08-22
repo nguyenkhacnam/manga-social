@@ -87,10 +87,10 @@ function UserProfile() {
                     <div className="text-6xl text-white mb-10"><Link to="" >Recent Read Comics</Link></div>
                     <div className=""><ComicRecent /></div>
                 </div>
-                <div>
+                {/* <div>
                     <div className="text-6xl text-white mb-10"><Link to="" >Comments</Link></div>
                     <div className=""><Comments /></div>
-                </div>
+                </div> */}
             </div>
         </div>
         </>

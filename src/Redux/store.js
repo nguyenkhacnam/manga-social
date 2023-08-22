@@ -1,5 +1,5 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
-import commentsReducer from './comments/commentsSlice'
+
 import storage from "redux-persist/lib/storage";
 import {
   persistReducer,
@@ -18,6 +18,7 @@ import {
 } from "redux-state-sync";
 import userSlice from "./Feature/userSlice";
 import mangaData from "./Feature/mangaData";
+import commentsSlice from "./comments/commentsSlice";
 
 const reduxStateSyncConfig = {
   predicate: (action) => {
@@ -43,7 +44,7 @@ const persistedReducer = persistReducer(
   combineReducers({
     user: userSlice,
     mangaData: mangaData,
-    comments: commentsReducer,
+    comments: commentsSlice,
   })
 );
 

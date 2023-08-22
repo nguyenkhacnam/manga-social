@@ -9,10 +9,11 @@ const commentsSlice = createSlice({
     },
     reducers: {
         setComments: (state, action) => {
+            console.log('action.payload', action.payload)
             state.comments = action.payload;
         },
         removeComments: (state) => {
-            return []
+            state.comments = []
         },
     },
 });

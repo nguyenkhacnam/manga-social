@@ -9,7 +9,7 @@ const CardManga = ({ poster, title, rate, update }) => {
     const slug = title?.toLowerCase().replace(/ /g, "-") || "";
     const [selectedManga, setSelectedManga] = useState(null)
     const handleMangaSelect = (title) => {
-        const titleManga = title?.toLowerCase().replace(/ /g, "+") || "";
+        const titleManga = title?.toLowerCase().replace(/ /g, "-") || "";
         setSelectedManga(titleManga)
         console.log('titleManga', titleManga)
     }

@@ -5,6 +5,8 @@ import { useSelector} from "react-redux";
 function MangaComments() {
 
     const comments = useSelector(state => state.comments);
+    const store = useSelector(state => state);
+    console.log('store', store)
     console.log('commentsmaga', comments)
     const [image, setImage] = useState(null);
 
