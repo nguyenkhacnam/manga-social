@@ -20,7 +20,7 @@ const Rank = () => {
         setRankComics(mangaData[index]?.data);
     };
 
-    // const rankComics = mangaData[9]?.data;
+    console.log(rankComics);
 
     return (
         <div className="px-[16px] pb-[16px] sm:px-[20px] md:px-[25px] lg:px-[60px] lg:pb-[60px]">
