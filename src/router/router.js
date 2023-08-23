@@ -19,6 +19,8 @@ import Page_Recommended from "../pages/Recommended/Recommended";
 import Page_Comedy from "../pages/Comedy/Comedy";
 import Nhap from "../pages/ChapterPage/nhap";
 import Page_FreeComics from "../pages/FreeComics/FreeComics";
+import ForgotPassword from "../pages/ForgotPassword/ForgotPassword";
+import ConfirmAcount from "../pages/ConfirmAcount/ConfirmAcount";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -90,6 +92,14 @@ const router = createBrowserRouter([
   {
     path: "/user-profile",
     element: <UserProfile />,
+  },
+  {
+    path: "/forgot-password",
+    element: <ForgotPassword />,
+  },
+  {
+    path: "/confirm-acount",
+    element: <ConfirmAcount />,
   },
   {
     path: "/nhap",
