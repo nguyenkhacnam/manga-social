@@ -71,11 +71,11 @@ const router = createBrowserRouter([
                 element: <Page_FreeComics />,
             },
             {
-                path: "chapter/:slug",
+                path: "/manga/:slug",
                 element: <ChapterPage />,
             },
             {
-                path: "chapter/:slug/:id",
+                path: "/manga/:slug/:id",
                 element: <ReadChapter />,
             },
             {
