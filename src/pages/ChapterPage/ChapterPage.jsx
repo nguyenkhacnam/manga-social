@@ -5,6 +5,7 @@ import axios from "axios";
 import { NavLink, useParams } from "react-router-dom";
 import MangaComments from "../../components/MangaComments";
 import { useSelector } from "react-redux";
+import { sortedChapters } from "../../service/sortChapter";
 
 const ChapterPage = () => {
   const [showChapter, setShowChapter] = useState(true);
@@ -14,9 +15,10 @@ const ChapterPage = () => {
   const [showFullDescription, setShowFullDescription] = useState(false);
   const params = useParams();
   const { slug } = params;
+  console.log("params in chapterpage ", params);
 
   const user = useSelector((store) => store.user);
-  console.log("user", user);
+
   const handleShowChapter = () => {
     setShowChapter(true);
     setShowComment(false);
@@ -46,20 +48,7 @@ const ChapterPage = () => {
     setVisibleChapterCount((prevCount) => prevCount + 10);
   };
 
-  const sortedChapters = chapterDetail?.chapters?.sort((a, b) => {
-    // Lấy 3 số sau ký tự "chapter-"
-    const getLastNumber = (url) =>
-      parseInt(
-        url.slice(url.indexOf("chapter-") + 8, url.indexOf("chapter-") + 11),
-        10
-      );
-
-    const chapterNumberA = getLastNumber(a);
-    console.log("chapterNumberA", chapterNumberA);
-    const chapterNumberB = getLastNumber(b);
-
-    return chapterNumberA - chapterNumberB;
-  });
+  const sortedChapterList = sortedChapters(chapterDetail?.chapters);
 
   const viewsString = chapterDetail?.views || "";
   const startIndex = viewsString.lastIndexOf("has ") + 4;
@@ -70,6 +59,8 @@ const ChapterPage = () => {
   const truncatedDescription =
     chapterDetail?.description?.slice(0, 180) + "... ";
   const fullDescription = chapterDetail?.description;
+
+  console.log("chapterDetail.chapters", chapterDetail?.chapters);
 
   const firstChapter = chapterDetail?.chapters[0] || "";
   const lastDashIndex = firstChapter.lastIndexOf("/chapter-");
@@ -346,7 +337,7 @@ const ChapterPage = () => {
                 <div>278 Chapter</div>
               </div>
               <div className="flex flex-col gap-5  ">
-                {sortedChapters
+                {sortedChapterList
                   ?.slice(0, visibleChapterCount)
                   ?.map((chapter, index) => (
                     <div key={index}>
