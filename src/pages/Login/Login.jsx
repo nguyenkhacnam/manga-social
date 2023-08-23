@@ -34,7 +34,7 @@ const Login = () => {
       message.success("Login is successfully");
       console.log("response.data.account", response.data.account);
       dispatch(updateUser(response.data.account));
-      //navigate("/");
+      navigate("/");
     } catch (error) {
       message.error(`${error.response.data.message}`);
     }
@@ -77,6 +77,10 @@ const Login = () => {
 
   const HandleNavigateToSignUp = () => {
     navigate("/sign-up");
+  };
+
+  const handleForgotPassword = () => {
+    navigate("/forgot-password");
   };
 
   return (
@@ -161,7 +165,10 @@ const Login = () => {
           </Form>
 
           <div className="flex flex-col gap-[200px] md:gap-[20px] ">
-            <div className="font-semibold text-[16px] leading-[24px] text-center text-[#EA6016] cursor-pointer">
+            <div
+              className="font-semibold text-[16px] leading-[24px] text-center text-[#EA6016] cursor-pointer"
+              onClick={handleForgotPassword}
+            >
               Forgot Password?
             </div>
 
