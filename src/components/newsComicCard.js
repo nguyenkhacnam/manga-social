@@ -3,7 +3,7 @@ import React from "react";
 const NewsComicCard = ({ poster, time, title, index }) => {
     return (
         <div className="relative">
-            <div className="">
+            <div className="ease-in-out duration-300 hover:scale-105 transition">
                 <img
                     className="w-[180px] h-[220px] md:w-[332px] md:h-[487px] lg:w-[441px] lg:h-[529px] rounded-[12px]"
                     src={poster}
