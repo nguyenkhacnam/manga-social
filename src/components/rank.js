@@ -6,6 +6,7 @@ const Rank = () => {
     const mangaData = useSelector((store) => store.mangaData.mangaData);
     const [rankComics, setRankComics] = useState(mangaData[9]?.data);
     const [isFocus, setIsForcus] = useState("week");
+    console.log(mangaData);
 
     const handleRank = (index) => {
         if (index === 9) {
@@ -19,8 +20,6 @@ const Rank = () => {
         }
         setRankComics(mangaData[index]?.data);
     };
-
-    console.log(rankComics);
 
     return (
         <div className="px-[16px] pb-[16px] sm:px-[20px] md:px-[25px] lg:px-[60px] lg:pb-[60px]">

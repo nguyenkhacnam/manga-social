@@ -21,89 +21,94 @@ import Nhap from "../pages/ChapterPage/nhap";
 import Page_FreeComics from "../pages/FreeComics/FreeComics";
 import ForgotPassword from "../pages/ForgotPassword/ForgotPassword";
 import ConfirmAcount from "../pages/ConfirmAcount/ConfirmAcount";
+import ReadNews from "../pages/ReadNews/ReadNews";
 const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Layout />,
-    children: [
-      {
-        index: true,
-        element: <Index />,
-      },
-      {
-        path: "/comic",
-        element: <Page_comic />,
-      },
-      {
-        path: "/genres",
-        element: <Page_Genres />,
-      },
-      {
-        path: "/contact-us",
-        element: <ContactUs />,
-      },
+    {
+        path: "/",
+        element: <Layout />,
+        children: [
+            {
+                index: true,
+                element: <Index />,
+            },
+            {
+                path: "/comic",
+                element: <Page_comic />,
+            },
+            {
+                path: "/genres",
+                element: <Page_Genres />,
+            },
+            {
+                path: "/contact-us",
+                element: <ContactUs />,
+            },
 
-      {
-        path: "newRelease",
-        element: <Page_NewRelease />,
-      },
-      {
-        path: "recent",
-        element: <Page_Recent />,
-      },
-      {
-        path: "recommnended",
-        element: <Page_Recommended />,
-      },
-      {
-        path: "commingsoon",
-        element: <Page_Comming />,
-      },
-      {
-        path: "news",
-        element: <Page_News />,
-      },
-      {
-        path: "comedy",
-        element: <Page_Comedy />,
-      },
-      {
-        path: "freeComics",
-        element: <Page_FreeComics />,
-      },
-      {
-        path: "/manga/:slug",
-        element: <ChapterPage />,
-      },
-      {
-        path: "/manga/:slug/:id",
-        element: <ReadChapter />,
-      },
-    ],
-  },
-  {
-    path: "/login",
-    element: <Login />,
-  },
-  {
-    path: "/sign-up",
-    element: <SignUp />,
-  },
-  {
-    path: "/user-profile",
-    element: <UserProfile />,
-  },
-  {
-    path: "/forgot-password",
-    element: <ForgotPassword />,
-  },
-  {
-    path: "/confirm-acount",
-    element: <ConfirmAcount />,
-  },
-  {
-    path: "/nhap",
-    element: <Nhap />,
-  },
+            {
+                path: "newRelease",
+                element: <Page_NewRelease />,
+            },
+            {
+                path: "recent",
+                element: <Page_Recent />,
+            },
+            {
+                path: "recommnended",
+                element: <Page_Recommended />,
+            },
+            {
+                path: "commingsoon",
+                element: <Page_Comming />,
+            },
+            {
+                path: "news",
+                element: <Page_News />,
+            },
+            {
+                path: "comedy",
+                element: <Page_Comedy />,
+            },
+            {
+                path: "freeComics",
+                element: <Page_FreeComics />,
+            },
+            {
+                path: "/manga/:slug",
+                element: <ChapterPage />,
+            },
+            {
+                path: "/manga/:slug/:id",
+                element: <ReadChapter />,
+            },
+            {
+                path: "news/:id",
+                element: <ReadNews />,
+            },
+        ],
+    },
+    {
+        path: "/login",
+        element: <Login />,
+    },
+    {
+        path: "/sign-up",
+        element: <SignUp />,
+    },
+    {
+        path: "/user-profile",
+        element: <UserProfile />,
+    },
+    {
+        path: "/forgot-password",
+        element: <ForgotPassword />,
+    },
+    {
+        path: "/confirm-acount",
+        element: <ConfirmAcount />,
+    },
+    {
+        path: "/nhap",
+        element: <Nhap />,
+    },
 ]);
 export default router;
