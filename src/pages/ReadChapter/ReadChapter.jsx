@@ -1,12 +1,15 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Breadcrumb, Button, Modal } from "antd";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, NavLink, useNavigate, useParams } from "react-router-dom";
 import {
   generateChapterNumber,
   sortedChapters,
 } from "../../service/sortChapter";
 import Loading from "../../components/Loading/Loading";
+
+import { AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
+import { BsReverseLayoutTextSidebarReverse } from "react-icons/bs";
 
 const ReadChapter = () => {
   const [chapter, setChapter] = useState("");
@@ -20,6 +23,7 @@ const ReadChapter = () => {
   const { slug, id } = params;
 
   const fetchChapter = async () => {
+    console.log("alo here");
     try {
       const response = await axios.get(
         `http://14.225.7.221:7979/manga/${slug}`
@@ -65,11 +69,6 @@ const ReadChapter = () => {
     }
   };
 
-  // const chapterNumbers = sortedChapterList?.map((chapterURL) => {
-  //   const lastDashIndex = chapterURL?.lastIndexOf("chapter-");
-  //   const chapterNumber = chapterURL?.substring(lastDashIndex + 8); // +8 để bỏ qua "chapter-"
-  //   return `chapter-${chapterNumber}`;
-  // });
   const chapterNumbers = sortedChapterList?.map(generateChapterNumber);
   useEffect(() => {
     if (sortedChapterList && sortedChapterList?.length > 0) {
@@ -81,10 +80,8 @@ const ReadChapter = () => {
     }
   }, [sortedChapterList, id]);
 
-  console.log("currentChapterIndex", currentChapterIndex);
   const currentChapter =
     chapterNumbers?.length > 0 ? chapterNumbers[currentChapterIndex] : null;
-  console.log("currentChapter", currentChapter);
 
   const fetchReadChapter = async () => {
     setLoading(true);
@@ -92,8 +89,8 @@ const ReadChapter = () => {
       const response = await axios.get(
         `http://14.225.7.221:7979/manga/${slug}/${id}`
       );
-
       setImageChapters(response.data.ImageChapter);
+      console.log("imageChapters trong", imageChapters);
     } catch (error) {
       console.log("error", error);
     }
@@ -111,6 +108,8 @@ const ReadChapter = () => {
     navigate(`/manga/${slug}/${chapternumber}`);
     handleCancel();
   };
+  console.log("imageChapters ngoài", imageChapters);
+
   return (
     <Loading isLoading={loading}>
       <div>
@@ -120,8 +119,9 @@ const ReadChapter = () => {
           onOk={handleOk}
           onCancel={handleCancel}
           footer={null}
+          className="w-full"
         >
-          <div className="overflow-auto h-[400px] grid grid-cols-4 ">
+          <div className="overflow-auto  h-[400px] grid grid-cols-2 md:grid-cols-4 ">
             {chapterNumbers?.map((chapternumber, index) => (
               <button
                 key={index}
@@ -132,7 +132,6 @@ const ReadChapter = () => {
             ))}
           </div>
         </Modal>
-
         <div className="flex items-center justify-center">
           <div className="w-[75%]  ">
             <div>
@@ -146,31 +145,66 @@ const ReadChapter = () => {
                 <Breadcrumb.Item>{id}</Breadcrumb.Item>
               </Breadcrumb>
             </div>
-            <div>{chapter.title}</div>
             <div>
+              <NavLink
+                to={`/manga/${slug}`}
+                className="font-semibold text-[18px] leading-[25px] text-[#EA6016]"
+              >
+                {chapter.title}
+              </NavLink>
+            </div>
+            <div className="mt-5 mb-3">
               <div className="flex items-center justify-center gap-[30px] ">
-                <button onClick={goToPrevChapter} disable={loading}>
+                <button
+                  onClick={goToPrevChapter}
+                  disabled={currentChapterIndex === 0 || loading} // Tắt khi ở vị trí đầu tiên hoặc đang loading
+                  className={`flex items-center justify-center gap-2 px-4 py-2 ${
+                    currentChapterIndex === 0 || loading
+                      ? "bg-[#655e5a]"
+                      : "bg-[#fa935c]"
+                  } `}
+                >
+                  <AiOutlineArrowLeft />
                   Prev
                 </button>
-                <button onClick={showModal}>open modal</button>
-                <button onClick={goToNextChapter} disable={loading}>
+                <button onClick={showModal}>
+                  <BsReverseLayoutTextSidebarReverse />
+                </button>
+                <button
+                  onClick={goToNextChapter}
+                  disabled={
+                    currentChapterIndex === chapterNumbers?.length - 1 ||
+                    loading
+                  } // Tắt khi ở vị trí cuối cùng hoặc đang loading
+                  className={`flex items-center justify-center gap-2 px-4 py-2 ${
+                    currentChapterIndex === chapterNumbers?.length - 1 ||
+                    loading
+                      ? "bg-[#655e5a]"
+                      : "bg-[#fa935c]"
+                  } `}
+                >
                   Next
+                  <AiOutlineArrowRight />
                 </button>
               </div>
             </div>
           </div>
         </div>
-        <div className="flex flex-col items-center justify-center  ">
-          {imageChapters?.map((imageChapter, index) => (
-            <div key={index}>
-              <img
-                src={imageChapter}
-                alt=""
-                className="h-[100%] w-[100%] bg-cover object-cover mt-2 "
-              />
-              <hr />
-            </div>
-          ))}
+        <div className="flex flex-col items-center justify-center">
+          {loading ? (
+            <div>Đang tải ảnh...</div>
+          ) : (
+            imageChapters?.map((imageChapter, index) => (
+              <div key={index}>
+                <img
+                  src={imageChapter}
+                  alt=""
+                  className="h-[100%] w-[100%] bg-cover object-cover mt-2 "
+                />
+                <hr />
+              </div>
+            ))
+          )}
         </div>
       </div>
     </Loading>
