@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 const NewsComics = () => {
     const mangaData = useSelector((store) => store.mangaData.mangaData);
     const dataSlice = mangaData[6]?.data.slice(0, 7);
+    console.log(dataSlice);
     return (
         <div className="flex gap-10 mb-[60px]">
             <div className="flex flex-col gap-8">
