@@ -34,7 +34,7 @@ const Login = () => {
       message.success("Login is successfully");
       console.log("response.data.account", response.data.account);
       dispatch(updateUser(response.data.account));
-      navigate("/");
+      //navigate("/");
     } catch (error) {
       message.error(`${error.response.data.message}`);
     }
