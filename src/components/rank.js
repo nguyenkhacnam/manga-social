@@ -4,19 +4,18 @@ import { useSelector } from "react-redux";
 
 const Rank = () => {
     const mangaData = useSelector((store) => store.mangaData.mangaData);
-    const [rankComics, setRankComics] = useState(mangaData[9]?.data);
-    console.log('rankComics', rankComics)
+    const [rankComics, setRankComics] = useState(mangaData[8]?.data);
     const [isFocus, setIsForcus] = useState("week");
     console.log(mangaData);
 
     const handleRank = (index) => {
-        if (index === 9) {
+        if (index === 8) {
             setIsForcus("week");
         }
-        if (index === 10) {
+        if (index === 9) {
             setIsForcus("month");
         }
-        if (index === 11) {
+        if (index === 10) {
             setIsForcus("year");
         }
         setRankComics(mangaData[index]?.data);
@@ -26,7 +25,7 @@ const Rank = () => {
         <div className="px-[16px] pb-[16px] sm:px-[20px] md:px-[25px] lg:px-[60px] lg:pb-[60px]">
             <div className="text-white flex items-center text-[12px] sm:text-[18px] md:text-[24px] lg:text-[30px] font-semibold gap-[10px] lg:gap-[30px] pb-[10px] lg:pb-[30px]">
                 <span
-                    onClick={() => handleRank(9)}
+                    onClick={() => handleRank(8)}
                     className={`" cursor-pointer hover:underline" ${
                         isFocus === "week" && "text-[#F45F17]"
                     }`}
@@ -34,7 +33,7 @@ const Rank = () => {
                     Weak
                 </span>
                 <span
-                    onClick={() => handleRank(10)}
+                    onClick={() => handleRank(9)}
                     className={`" cursor-pointer hover:underline" ${
                         isFocus === "month" && "text-[#F45F17]"
                     }`}
@@ -42,7 +41,7 @@ const Rank = () => {
                     Month
                 </span>
                 <span
-                    onClick={() => handleRank(11)}
+                    onClick={() => handleRank(10)}
                     className={`" cursor-pointer hover:underline" ${
                         isFocus === "year" && "text-[#F45F17]"
                     }`}

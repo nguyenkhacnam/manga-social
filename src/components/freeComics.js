@@ -4,7 +4,7 @@ import CardManga from "./cardManga";
 
 const FreeComics = () => {
     const mangaData = useSelector((store) => store.mangaData.mangaData);
-    const firstFiveItem = mangaData[2]?.data.slice(0, 5);
+    const firstFiveItem = mangaData[6]?.data.slice(0, 5);
     return (
         <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-[10px] gap-y-[20px] lg:gap-[20px] px-[16px] pb-[16px] sm:px-[20px] md:px-[25px] lg:px-[60px] lg:pb-[60px] lg:pt-[30px]">
             {firstFiveItem?.map((item, index) => (
