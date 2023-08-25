@@ -8,6 +8,13 @@ import { useDispatch } from "react-redux";
 import { updateUser } from "../../Redux/Feature/userSlice";
 import { getMangaData } from "../../Redux/Feature/mangaData";
 
+//axios.defaults.withCredentials = true;
+
+const axiosInstance = axios.create({
+  withCredentials: true, // Cho phép gửi và nhận cookie giữa các tên miền khác nhau
+  credentials: "include", // Bao gồm cookie trong yêu cầu
+});
+
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -27,19 +34,35 @@ const Login = () => {
     setLoading(true);
     console.log("Success:", values);
     try {
-      const response = await axios.post(
+      const response = await axiosInstance.post(
         "http://14.225.7.221:7979/login",
         values
+        // {
+        //   headers: {
+        //     "access-control-allow-origin": "*",
+        //     "Content-type": "application/json; charset=UTF-8",
+        //   },
+        // }
       );
-      message.success("Login is successfully");
-      console.log("response.data.account", response);
-      dispatch(updateUser(response.data.account));
-      navigate("/");
+      if (response && response.data && response.data.account) {
+        message.success("Login is successful");
+        console.log("response.data.account", response.data.account);
+        dispatch(updateUser(response.data.account));
+        navigate("/");
+      } else {
+        // Handle the case when the response doesn't have the expected data
+        message.error("Invalid response data");
+      }
     } catch (error) {
-      message.error(`${error.response.data.message}`);
+      if (error.response) {
+        message.error(`${error.response.data.message}`);
+      } else {
+        message.error("An error occurred");
+      }
     }
     setLoading(false);
   };
+
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
