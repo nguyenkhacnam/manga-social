@@ -5,7 +5,8 @@ import { useParams } from "react-router-dom";
 const ReadNews = () => {
     const { id } = useParams();
     const mangaData = useSelector((store) => store.mangaData.mangaData);
-    const newsData = mangaData[6]?.data[id];
+    const newsData = mangaData[7]?.data[id];
+    console.log("Read News: ", newsData);
     const user_name = newsData.profile_user_post.slice(32);
     return (
         <div className="bg-black px-[16px] pb-[100px] md:px-[25px] md:pb-[150px] lg:px-[60px] lg:pb-[200px] flex flex-col text-white">

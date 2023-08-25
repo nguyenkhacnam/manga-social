@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 
 const Page_Recent = () => {
     const mangaData = useSelector((store) => store.mangaData.mangaData);
-    const comicRecent = mangaData[4]?.data;
+    const comicRecent = mangaData[1]?.data;
     return (
         <div className="bg-black px-[16px] pb-[16px] sm:px-[20px] sm:pb-[20px] md:px-[25px] md:pb-[25px] lg:px-[60px] lg:pb-[60px]">
             <div className="">
