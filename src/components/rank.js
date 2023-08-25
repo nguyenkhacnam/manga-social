@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 const Rank = () => {
     const mangaData = useSelector((store) => store.mangaData.mangaData);
     const [rankComics, setRankComics] = useState(mangaData[9]?.data);
+    console.log('rankComics', rankComics)
     const [isFocus, setIsForcus] = useState("week");
     console.log(mangaData);
 
