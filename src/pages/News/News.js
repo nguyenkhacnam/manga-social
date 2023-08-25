@@ -5,10 +5,10 @@ import { Link, useLocation } from "react-router-dom";
 
 const Page_News = () => {
     const mangaData = useSelector((store) => store.mangaData.mangaData);
-    const newsData = mangaData[6]?.data;
+    const newsData = mangaData[7]?.data;
     const currentPath = useLocation();
     return (
-        <div className="bg-black px-[16px] pb-[16px] sm:px-[20px] sm:pb-[20px] md:px-[25px] md:pb-[25px] lg:px-[60px] lg:pb-[60px]">
+        <div className="bg-black pt-[16px] px-[16px] pb-[100px] md:px-[25px] md:pb-[150px] lg:px-[60px] lg:pb-[200px]">
             <h1 className="text-[14px] font-semibold sm:text-[18px] md:text-[24px] lg:text-[50px] leading-[64px] text-[#FFFFFF] pt-[16px] pb-[20px] sm:pt-[20px] sm:pb-[26px] md:pb-[30px] md:pt-[38px] lg:pt-[50px] lg:pb-[60px]">
                 News
             </h1>
@@ -16,7 +16,7 @@ const Page_News = () => {
                 {newsData?.map((item, index) => (
                     <Link to={currentPath.pathname + "/" + index}>
                         <NewsComicsPageCard
-                            key={index}
+                            key={item.id_news}
                             des={item.descript_pro}
                             poster={item.images_poster}
                             num_comment={item.number_comment}

@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 
 const NewUsers = () => {
     const mangaData = useSelector((store) => store.mangaData.mangaData);
-    const newUsers = mangaData[12]?.data;
+    const newUsers = mangaData[11]?.data;
     return (
         <div className="flex flex-col items-center bg-[#323232] px-[12px] py-[8px] lg:px-[60px] lg:py-[20px] lg:mr-[60px] rounded-[12px]">
             <h2 className="text-[#888] text-[14px] sm:text-[18px] md:text-[24px] lg:text-[30px] font-bold lg:pb-[20px]">

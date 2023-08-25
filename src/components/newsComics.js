@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const NewsComics = () => {
     const mangaData = useSelector((store) => store.mangaData.mangaData);
-    const dataSlice = mangaData[6]?.data.slice(0, 7);
+    const dataSlice = mangaData[7]?.data.slice(0, 7);
     return (
         <div className="flex gap-10 mb-[60px]">
             <div className="flex flex-col gap-8">
@@ -15,7 +15,7 @@ const NewsComics = () => {
                         return (
                             <Link to={`news/${index}`}>
                                 <NewsComicCard
-                                    key={index}
+                                    key={item.id_news}
                                     index={index}
                                     poster={item.images_poster}
                                     time={item.time_news}
@@ -32,7 +32,7 @@ const NewsComics = () => {
                         return (
                             <Link to={`news/${index}`}>
                                 <NewsComicCardSmall
-                                    key={index}
+                                    key={item.id_news}
                                     index={index}
                                     poster={item.images_poster}
                                     time={item.time_news}
