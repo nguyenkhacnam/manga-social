@@ -3,9 +3,10 @@ import "./ChapterPage.css";
 import ChapterCard from "../../components/ChapterCard/ChapterCard";
 import axios from "axios";
 import { NavLink, useParams } from "react-router-dom";
-import MangaComments from "../../components/MangaComments";
+
 import { useSelector } from "react-redux";
 import { sortedChapters } from "../../service/sortChapter";
+import Comments from "../../components/Comments/Comments";
 
 const ChapterPage = () => {
   const [showChapter, setShowChapter] = useState(true);
@@ -15,8 +16,6 @@ const ChapterPage = () => {
   const [showFullDescription, setShowFullDescription] = useState(false);
   const params = useParams();
   const { slug } = params;
-  console.log("params in chapterpage ", params);
-
   const user = useSelector((store) => store.user);
 
   const handleShowChapter = () => {
@@ -60,21 +59,14 @@ const ChapterPage = () => {
     chapterDetail?.description?.slice(0, 180) + "... ";
   const fullDescription = chapterDetail?.description;
 
-  console.log("chapterDetail.chapters", chapterDetail?.chapters);
-
   const firstChapter = chapterDetail?.chapters[0] || "";
   const lastDashIndex = firstChapter.lastIndexOf("/chapter-");
 
   // Lấy phần từ "chapter-" đến hết trong chuỗi chapter
   const chapterNumber = firstChapter.substring(lastDashIndex + 1);
-  console.log("chapterNumber in chapterPage", chapterNumber);
+  //console.log("chapterNumber in chapterPage", chapterNumber);
   console.log("chapterDetail", chapterDetail);
 
-  const [showAll, setShowAll] = useState(false);
-
-  const handleSeeAllClick = () => {
-    setShowAll(true);
-  };
   return (
     <div>
       <div
@@ -358,7 +350,7 @@ const ChapterPage = () => {
                     </div>
                   ))}
               </div>
-              <div className="text-center mt-5">
+              <div className="text-center mt-5 pb-[100px]">
                 <button
                   className="font-semibold text-[12px] leading-[16px] lg:text-[20px] 2xl:text-[32px] 2xl:leading-[40px] text-white  "
                   onClick={handleSeeMore}
@@ -373,7 +365,7 @@ const ChapterPage = () => {
       <div>
         {showComment && (
           <div>
-            <MangaComments />
+            <Comments comments={chapterDetail.comments} slug={slug} />
           </div>
         )}
       </div>

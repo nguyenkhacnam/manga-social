@@ -7,9 +7,7 @@ import {
   sortedChapters,
 } from "../../service/sortChapter";
 import Loading from "../../components/Loading/Loading";
-
-import { AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
-import { BsReverseLayoutTextSidebarReverse } from "react-icons/bs";
+import DirectionChapter from "../../components/DirectionChapter/DirectionChapter";
 
 const ReadChapter = () => {
   const [chapter, setChapter] = useState("");
@@ -112,7 +110,7 @@ const ReadChapter = () => {
 
   return (
     <Loading isLoading={loading}>
-      <div>
+      <div className="bg-[#111111]">
         <Modal
           title="Chọn Chapter"
           open={isModalOpen}
@@ -121,19 +119,20 @@ const ReadChapter = () => {
           footer={null}
           className="w-full"
         >
-          <div className="overflow-auto  h-[400px] grid grid-cols-2 md:grid-cols-4 ">
+          <div className="overflow-auto  h-[50vh] grid grid-cols-2 md:grid-cols-4 gap-2 px-3">
             {chapterNumbers?.map((chapternumber, index) => (
               <button
                 key={index}
                 onClick={() => handleChooseChapter(chapternumber)}
+                className="border-[#f45f17] border-[1px] px-2 py-1 hover:bg-[#f45f17] hover:text-white hover:duration-200 "
               >
                 {chapternumber}
               </button>
             ))}
           </div>
         </Modal>
-        <div className="flex items-center justify-center">
-          <div className="w-[75%]  ">
+        <div className="flex items-center justify-center ">
+          <div className=" w-full md:w-[75%] px-4 py-2 lg:w-[65%] bg-white ">
             <div>
               <Breadcrumb style={{ margin: "16px 0" }}>
                 <Breadcrumb.Item>
@@ -148,58 +147,35 @@ const ReadChapter = () => {
             <div>
               <NavLink
                 to={`/manga/${slug}`}
-                className="font-semibold text-[18px] leading-[25px] text-[#EA6016]"
+                className="font-semibold text-[18px] leading-[25px] text-[#EA6016]  "
               >
                 {chapter.title}
               </NavLink>
             </div>
-            <div className="mt-5 mb-3">
-              <div className="flex items-center justify-center gap-[30px] ">
-                <button
-                  onClick={goToPrevChapter}
-                  disabled={currentChapterIndex === 0 || loading} // Tắt khi ở vị trí đầu tiên hoặc đang loading
-                  className={`flex items-center justify-center gap-2 px-4 py-2 ${
-                    currentChapterIndex === 0 || loading
-                      ? "bg-[#655e5a]"
-                      : "bg-[#fa935c]"
-                  } `}
-                >
-                  <AiOutlineArrowLeft />
-                  Prev
-                </button>
-                <button onClick={showModal}>
-                  <BsReverseLayoutTextSidebarReverse />
-                </button>
-                <button
-                  onClick={goToNextChapter}
-                  disabled={
-                    currentChapterIndex === chapterNumbers?.length - 1 ||
-                    loading
-                  } // Tắt khi ở vị trí cuối cùng hoặc đang loading
-                  className={`flex items-center justify-center gap-2 px-4 py-2 ${
-                    currentChapterIndex === chapterNumbers?.length - 1 ||
-                    loading
-                      ? "bg-[#655e5a]"
-                      : "bg-[#fa935c]"
-                  } `}
-                >
-                  Next
-                  <AiOutlineArrowRight />
-                </button>
-              </div>
-            </div>
           </div>
         </div>
-        <div className="flex flex-col items-center justify-center">
+        <div className="flex items-center justify-center sticky top-0">
+          <div className="bg-white w-full md:w-[75%] lg:w-[65%]   ">
+            <DirectionChapter
+              goToPrevChapter={goToPrevChapter}
+              currentChapterIndex={currentChapterIndex}
+              loading={loading}
+              showModal={showModal}
+              goToNextChapter={goToNextChapter}
+              chapterNumbers={chapterNumbers}
+            />
+          </div>
+        </div>
+        <div className="flex flex-col items-center justify-center ">
           {loading ? (
             <div>Đang tải ảnh...</div>
           ) : (
             imageChapters?.map((imageChapter, index) => (
-              <div key={index}>
+              <div key={index} className=" w-full md:w-[75%] lg:w-[65%] ">
                 <img
                   src={imageChapter}
                   alt=""
-                  className="h-[100%] w-[100%] bg-cover object-cover mt-2 "
+                  className="h-[100%] w-full bg-cover object-cover mt-2 "
                 />
                 <hr />
               </div>
