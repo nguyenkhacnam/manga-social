@@ -8,35 +8,27 @@ const CardManga = ({ poster, title, rate, update }) => {
     const dispatch = useDispatch();
     const slug = title?.toLowerCase().replace(/ /g, "-") || "";
     const [selectedManga, setSelectedManga] = useState(null)
-    const handleMangaSelect = (title) => {
+    const handleMangaSelect = async (title) => {
         const titleManga = title?.toLowerCase().replace(/ /g, "-") || "";
-        setSelectedManga(titleManga)
-        console.log('titleManga', titleManga)
-    }
+        setSelectedManga(titleManga);
+
+        try {
+            const response = await axios.get(`http://14.225.7.221:7979/manga/${titleManga}`);
+            console.log(response.data.comments);
+            dispatch(setComments(response.data));
+        } catch (error) {
+            console.error("Error fetching comments:", error);
+        }
+    };
 
     useEffect(() => {
-        let isMounted = true
         if (selectedManga) {
-            axios
-                .get(`http://14.225.7.221:7979/manga/${selectedManga}`)
-                .then((response) => {
-                    if (isMounted) {
-                        console.log(response.data.comments)
-                        dispatch(setComments(response.data.comments));
-                    }
-                })
-                .catch((error) => {
-                    console.error("Error fetching comments:", error);
-                });
+            handleMangaSelect(title);
         }
-
-        return () => {
-            isMounted = false;
-        };
-    }, [selectedManga, dispatch]);
+    }, [selectedManga, title, dispatch]);
     return (
         <NavLink
-            to={`/chapter/${slug}`}
+        to={`/chapter/${slug}`}
         >
             <div className=" cursor-pointer" onClick={() => handleMangaSelect(title)}>
                 <div className="ease-in-out duration-300 hover:scale-105 transition">

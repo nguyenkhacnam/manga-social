@@ -2,14 +2,12 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useSelector} from "react-redux";
 
-function MangaComments() {
+function MangaComments( { chapterDetail } ) {
 
     const comments = useSelector(state => state.comments);
-    const store = useSelector(state => state);
-    console.log('store', store)
     console.log('commentsmaga', comments)
     const [image, setImage] = useState(null);
-
+    console.log('cmt',chapterDetail?.comments)
     useEffect(() => {
         const storedData = localStorage.getItem("persist:root");
         const parsedData = JSON.parse(storedData);

@@ -58,7 +58,7 @@ const ChapterPage = () => {
             );
 
         const chapterNumberA = getLastNumber(a);
-        console.log("chapterNumberA", chapterNumberA);
+        // console.log("chapterNumberA", chapterNumberA);
         const chapterNumberB = getLastNumber(b);
 
         return chapterNumberA - chapterNumberB;
@@ -404,7 +404,7 @@ const ChapterPage = () => {
             <div>
                 {showComment && (
                     <div>
-                        <MangaComments />
+                        <MangaComments chapterDetail={chapterDetail} />
                     </div>
                 )}
             </div>
