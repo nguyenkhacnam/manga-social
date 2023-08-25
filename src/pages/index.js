@@ -23,6 +23,7 @@ import { getMangaData } from "../Redux/Feature/mangaData";
 import Recommended from "../components/recommended";
 import ComedyComics from "../components/comeryComics";
 import FreeComics from "../components/freeComics";
+import Top15Comics from "../components/top15Comics";
 export default function Index() {
     const mangaData = useSelector((store) => store.mangaData.mangaData);
     console.log("mangaData", mangaData);
@@ -103,7 +104,7 @@ export default function Index() {
                         </p>
                     </Link>
                 </div>
-                <ComicRecent></ComicRecent>
+                <Top15Comics />
                 <div className="text-[14px] font-semibold sm:text-[18px] md:text-[24px] lg:text-[50px] flex items-center justify-between px-[16px] pb-[16px] sm:px-[20px] md:px-[25px] ">
                     <h2 className="text-[#FFFFFF]">Comedy Comics</h2>
                     <Link to="/comedy">
