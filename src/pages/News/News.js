@@ -14,14 +14,13 @@ const Page_News = () => {
             </h1>
             <div className="flex flex-col gap-[20px] lg:gap-[60px]">
                 {newsData?.map((item, index) => (
-                    <Link to={currentPath.pathname + "/" + index}>
+                    <Link to={currentPath.pathname + "/" + item.id_news}>
                         <NewsComicsPageCard
                             key={item.id_news}
-                            des={item.descript_pro}
                             poster={item.images_poster}
-                            num_comment={item.number_comment}
                             title={item.title_news}
                             time={item.time_news}
+                            url_news={item.url_news}
                         />
                     </Link>
                 ))}

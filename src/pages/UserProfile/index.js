@@ -63,14 +63,14 @@ function UserProfile() {
                             className=""
                         />
                         <div className="flex flex-col md:h-60 md:w-full relative">
-                            <div className="absolute top-[-60px] md:top-[-150px] px-[16px] sm:px-[20px] sm:pb-[20px] md:px-[25px] md:pb-[25px] lg:px-[60px] lg:pb-[60px]">
+                            <div className="absolute flex items-end lg:items-center gap-3 top-[-60px] md:top-[-150px] px-[16px] sm:px-[20px] sm:pb-[20px] md:px-[25px] md:pb-[25px] lg:px-[60px] lg:pb-[60px]">
                                 <img
                                     src={image}
                                     alt=""
                                     className=" w-[124px] h-[124px] border-4 md:w-[312px] md:h-[312px]
-                            rounded-full object-cover border-solid md:border-8"
+                            lg:w-[450px] lg:h-[450px] rounded-full object-cover border-solid md:border-8"
                                 />
-                                <div className="flex flex-col font-normal md:text-[28px] md:items-center justify-start md:justify-center md:gap-6 md:ml-6">
+                                <div className="flex flex-col font-normal lg:pt-[50px] md:text-[28px] md:items-center justify-start md:justify-center md:gap-6 md:ml-6">
                                     <h2 className="text-[#fff] md:text-[45px] text-sm font-semibold">
                                         {userName}
                                     </h2>
@@ -84,11 +84,11 @@ function UserProfile() {
                                 onClick={handleModal}
                                 src="images\UserProfile\more-horizontal.png"
                                 alt=""
-                                className="w-7 h-7 md:w-16 md:h-16 absolute right-4 top-1/2 translate-y-[100%] md:translate-y-[-50%] cursor-pointer"
+                                className="w-7 h-7 md:w-16 md:h-16 absolute right-4 top-1/2 translate-y-[100%] md:translate-y-[-50%] cursor-pointer z-20"
                             />
                         </div>
                     </div>
-                    <div className="flex flex-col mx-4 md:mx-[25px] mt-[150px] md:mt-[200px] md:w-[526px] max-h-[352px] bg-[#676767] font-semibold text-[#fff] rounded-xl md:p-6 p-[10px]">
+                    <div className="flex flex-col mx-4 md:mx-[25px] mt-[100px] md:mt-[50px] lg:mt-[100px] bg-[#676767] font-semibold text-[#fff] rounded-xl md:p-[30px] p-[10px]">
                         <div className="pb-[10px]">
                             <h2 className="text-sm md:text-[36px] text-[#fff] pb-[10px] md:pb-[30px]">
                                 Introduce
