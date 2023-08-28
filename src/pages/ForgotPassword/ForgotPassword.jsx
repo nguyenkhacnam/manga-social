@@ -135,7 +135,7 @@ const ForgotPassword = () => {
                 name="new_password"
                 type={showPassword ? "text" : "password"}
                 className=" w-full bg-[#353434] h-[44px] rounded-[12px] p-[10px]  mb-1 mt-1 text-white placeholder-white placeholder-opacity-75"
-                placeholder="Password"
+                placeholder="New Password"
               ></input>
             </Form.Item>
             <img
@@ -167,14 +167,14 @@ const ForgotPassword = () => {
               className="h-[24px] w-[24px] absolute top-3 right-3 cursor-pointer"
               alt=""
               onClick={toggleShowPassword}
-            />
+          EA6016  />
           </div>
 
           <Form.Item wrapperCol={{ span: 24 }} className="mt-1">
             <Button
               type="primary"
               htmlType="submit"
-              className="w-full h-[44px] rounded-[12px] p-[10px] bg-[#EA6016] focus:outline-none hover:bg-[#929292]  border-none "
+              className="w-full h-[44px] rounded-[12px] p-[10px] bg-[#] focus:outline-none hover:bg-[#929292]  border-none "
             >
               Send
             </Button>

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link, Outlet, json, useLocation } from "react-router-dom";
 import { BiSolidHome, BiSolidNews, BiSolidUser } from "react-icons/bi";
 import { RiSettingsFill } from "react-icons/ri";
+import Search from "../components/search";
 
 export default function Layout({ home }) {
     const [isHovered, setIsHovered] = useState(false);
@@ -143,7 +144,7 @@ export default function Layout({ home }) {
                     </div>
                 </div>
                 <div className="flex items-center relative gap-7">
-                    <img
+                    {/* <img
                         className="w-[24px] h-[24px] absolute left-4"
                         src="/images/search.svg"
                         alt=""
@@ -154,7 +155,8 @@ export default function Layout({ home }) {
                         placeholder="Search..."
                         value={input}
                         onChange={(e) => handleChange(e.target.value)}
-                    ></input>
+                    ></input> */}
+                    <Search />
                     <Link to="/user-profile">
                         <div className="lg:p-[6px] xl:p-[12px] bg-[#F69D17] rounded-[51px]">
                             <img

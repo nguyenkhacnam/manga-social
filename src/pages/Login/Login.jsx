@@ -10,10 +10,10 @@ import { getMangaData } from "../../Redux/Feature/mangaData";
 
 //axios.defaults.withCredentials = true;
 
-// const axiosInstance = axios.create({
-//     withCredentials: true, // Cho phép gửi và nhận cookie giữa các tên miền khác nhau
-//     credentials: "include", // Bao gồm cookie trong yêu cầu
-// });
+const axiosInstance = axios.create({
+    withCredentials: true, // Cho phép gửi và nhận cookie giữa các tên miền khác nhau
+    credentials: "include", // Bao gồm cookie trong yêu cầu
+});
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -34,9 +34,15 @@ const Login = () => {
         setLoading(true);
         console.log("Success:", values);
         try {
-            const response = await axios.post(
+            const response = await axiosInstance.post(
                 "http://14.225.7.221:7979/login",
                 values
+                // {
+                //   headers: {
+                //     "access-control-allow-origin": "*",
+                //     "Content-type": "application/json; charset=UTF-8",
+                //   },
+                // }
             );
             if (response && response.data && response.data.account) {
                 message.success("Login is successful");
