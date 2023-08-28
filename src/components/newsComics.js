@@ -13,13 +13,14 @@ const NewsComics = () => {
                 {dataSlice?.map((item, index) => {
                     if (index % 2 !== 0) {
                         return (
-                            <Link to={`news/${index}`}>
+                            <Link to={`news/${item.id_news}`}>
                                 <NewsComicCard
                                     key={item.id_news}
                                     index={index}
                                     poster={item.images_poster}
                                     time={item.time_news}
                                     title={item.title_news}
+                                    url_news={item.url_news}
                                 />
                             </Link>
                         );
@@ -30,13 +31,14 @@ const NewsComics = () => {
                 {dataSlice?.map((item, index) => {
                     if (index % 2 === 0) {
                         return (
-                            <Link to={`news/${index}`}>
+                            <Link to={`news/${item.id_news}`}>
                                 <NewsComicCardSmall
                                     key={item.id_news}
                                     index={index}
                                     poster={item.images_poster}
                                     time={item.time_news}
                                     title={item.title_news}
+                                    url_news={item.url_news}
                                 />
                             </Link>
                         );

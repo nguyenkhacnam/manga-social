@@ -122,12 +122,16 @@ const Modal = ({
             setBirthIsValid(true);
             return;
         }
+        if (avatar === "") {
+            setAvatarIsValid(true);
+            return;
+        }
 
         await fetch("http://14.225.7.221:7979/user/setting", {
-            headers: {
-                "Content-Type": "application/json",
-            },
             method: "PATCH",
+            headers: {
+                "Content-Type": "multipart/form-data",
+            },
             body: JSON.stringify({
                 name_user: userName,
                 date_of_birth: "02/08/2002",
@@ -137,6 +141,16 @@ const Modal = ({
                 job: "student",
             }),
         });
+
+        // const res = await axios.patch("http://14.225.7.221:7979/user/setting", {
+        //     name_user: userName,
+        //     date_of_birth: "02/08/2002",
+        //     gender: sex,
+        //     avatar_user: avatar,
+        //     introduction: introduce,
+        //     job: "student",
+        // });
+        // console.log(res);
 
         setSexIsValid(false);
         setAvatarIsValid(false);
@@ -155,7 +169,7 @@ const Modal = ({
     const introduceInValid = !introduceIsValid && introduceIsTouched;
 
     return (
-        <div className=" fixed inset-0 bg-gray-900 bg-opacity-60 flex items-center justify-center">
+        <div className=" fixed inset-0 bg-gray-900 bg-opacity-60 flex items-center justify-center z-20">
             <div
                 className={`bg-white px-5 py-2 md:px-10 md:py-5 rounded-[12px] relative ${
                     isModal ? " animate-fade-in-down" : "animate-fade-in-up"
@@ -181,6 +195,7 @@ const Modal = ({
                                 onChange={avatarChange}
                                 type="file"
                                 id="avatar"
+                                accept=".png, .jpg"
                                 className="block w-full text-sm md:text-[20px] text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm md:file:text-[20px] file:font-semibold file:bg-violet-50 file:text-gray-700 hover:file:bg-violet-100"
                             />
                             {avatarIsValid && (
