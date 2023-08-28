@@ -15,7 +15,6 @@ export const sortedChapters = (chapters) => {
 };
 
 export const generateChapterNumber = (chapterURL) => {
-  const lastDashIndex = chapterURL?.lastIndexOf("chapter-");
-  const chapterNumber = chapterURL?.substring(lastDashIndex + 8); // +8 để bỏ qua "chapter-"
-  return `chapter-${chapterNumber}`;
+  const lastIndex = chapterURL.lastIndexOf("/");
+  return chapterURL.substring(lastIndex + 1);
 };

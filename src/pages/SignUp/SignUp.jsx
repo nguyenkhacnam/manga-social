@@ -4,6 +4,7 @@ import axios from "axios";
 import * as message from "../../components/Message/Message";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import "../../assets/css/Acount.css";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -70,20 +71,10 @@ const SignUp = () => {
   };
 
   return (
-    <div
-      className="bg-cover bg-center h-screen w-[100%] flex items-center justify-center "
-      style={{
-        background: `
-      linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), 
-      linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), 
-      linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), 
-      linear-gradient(2deg, #000 0%, rgba(0, 0, 0, 0.00) 100%),
-      url('/images/Login/slide1.jpg') lightgray 50% / cover no-repeat `,
-      }}
-    >
-      <div className=" flex flex-col items-center justify-center rounded-[12px] gap-[31px] py-[60px] px-[15px] md:w-[420px] md:h-[546px] md:my-[100px] md:bg-[#242424] md:px-[44px] 2xl:w-[520px] 2xl:h-[746px]  2xl:px-[74px]">
-        <div className="font-semibold text-3xl text-white mb-4">SignUp</div>
-        <div className=" text-[14px] leading-[20px] md:text-[24px] md:leading-[28px] font-semibold text-white text-center">
+    <div className="container-acount">
+      <div className="wrapper-acount">
+        <div className="title-acount">SignUp</div>
+        <div className="noti-acount">
           Create a new accont our you can log in
         </div>
         <Form
@@ -107,7 +98,7 @@ const SignUp = () => {
             <input
               id="email"
               name="email"
-              className="  w-full bg-[#353434] h-[44px] rounded-[12px] p-[10px] mb-1 text-white placeholder-white placeholder-opacity-75"
+              className="input-acount"
               placeholder="Enter your email"
             />
           </Form.Item>
@@ -125,7 +116,7 @@ const SignUp = () => {
                 id="password"
                 name="password"
                 type={showPassword ? "text" : "password"}
-                className=" w-full bg-[#353434] h-[44px] rounded-[12px] p-[10px]  mb-1 mt-1 text-white placeholder-white placeholder-opacity-75"
+                className="input-acount"
                 placeholder="Password"
               ></input>
             </Form.Item>
@@ -141,7 +132,7 @@ const SignUp = () => {
             <Button
               type="primary"
               htmlType="submit"
-              className="w-full h-[44px] rounded-[12px] p-[10px] bg-[#EA6016] focus:outline-none hover:bg-[#929292]  border-none "
+              className="btn-acount bg-[#EA6016]"
             >
               Sign Up
             </Button>

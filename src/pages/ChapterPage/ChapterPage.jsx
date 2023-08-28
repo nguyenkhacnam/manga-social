@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./ChapterPage.css";
 import ChapterCard from "../../components/ChapterCard/ChapterCard";
 import axios from "axios";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useParams, useNavigate } from "react-router-dom";
 
 import { useSelector } from "react-redux";
 import { sortedChapters } from "../../service/sortChapter";
@@ -17,6 +17,8 @@ const ChapterPage = () => {
   const params = useParams();
   const { slug } = params;
   const user = useSelector((store) => store.user);
+
+  const navigate = useNavigate();
 
   const handleShowChapter = () => {
     setShowChapter(true);
@@ -46,26 +48,24 @@ const ChapterPage = () => {
   const handleSeeMore = () => {
     setVisibleChapterCount((prevCount) => prevCount + 10);
   };
-
+  // xắp xếp list
   const sortedChapterList = sortedChapters(chapterDetail?.chapters);
-
+  //format view
   const viewsString = chapterDetail?.views || "";
   const startIndex = viewsString.lastIndexOf("has ") + 4;
   const viewsPart = viewsString.substring(startIndex);
-
-  console.log(viewsPart);
-
+  // console.log(viewsPart);
+  //slice des
   const truncatedDescription =
     chapterDetail?.description?.slice(0, 180) + "... ";
   const fullDescription = chapterDetail?.description;
+  //lấy chapter trong url
+  const lastIndex = chapterDetail?.chapters[0]?.lastIndexOf("/");
+  const textFromRight = chapterDetail?.chapters[0]?.substring(lastIndex + 1);
 
-  const firstChapter = chapterDetail?.chapters[0] || "";
-  const lastDashIndex = firstChapter.lastIndexOf("/chapter-");
-
-  // Lấy phần từ "chapter-" đến hết trong chuỗi chapter
-  const chapterNumber = firstChapter.substring(lastDashIndex + 1);
-  //console.log("chapterNumber in chapterPage", chapterNumber);
-  console.log("chapterDetail", chapterDetail);
+  const handleReadNow = () => {
+    navigate(`/manga/${slug}/${textFromRight}`);
+  };
 
   return (
     <div>
@@ -255,35 +255,48 @@ const ChapterPage = () => {
                 </div>
                 {/* button */}
                 <div className="flex  gap-5">
-                  <NavLink to={`/chapter/${slug}/${chapterNumber}`}>
+                  {/* <NavLink to={`/manga/${slug}/${textFromRight}`}>
                     <button className=" min-h-[32px] p-[8px]  rounded-[12px] md:px-[35px] md:py-[15px] md:rounded-[20px] 2xl:px-[52px] 2xl:py-[26px]  bg-[#FF2020]  text-white 2xl:rounded-[67px] ">
-                      <div className="font-bold text-[12px] leading-[16px] md:text-[20px] 2xl:text-[36px] 2xl:leading-[44px] ">
-                        Read now
-                      </div>
+                      <img
+                        src="/public/images/ChapterPage/Component 1 (1).png"
+                        alt=""
+                      />
                     </button>
-                    <img src="" alt="" />
-                  </NavLink>
+                  </NavLink> */}
 
-                  <button className=" min-h-[32px] p-[8px]  rounded-[12px] text-black md:px-[35px] md:py-[15px] md:rounded-[20px] lg:text-white 2xl:px-[52px] 2xl:py-[26px]  bg-[#496EF1]  2xl:text-white 2xl:rounded-[67px]">
-                    <div className="font-bold text-[12px] leading-[16px] md:text-[20px] 2xl:text-[36px] 2xl:leading-[44px] flex items-center gap-[4px] 2xl:gap-3 ">
-                      <div> My List </div>
-                      <img
-                        src="/images/ChapterPage/uil_plus.png"
-                        alt=""
-                        className="h-[15px] w-[15px]  2xl:h-[48px] 2xl:w-[48px] bg-cover object-cover "
-                      />
-                    </div>
-                  </button>
-                  <button className=" min-h-[32px] p-[8px]  rounded-[12px] md:px-[35px] md:py-[15px] md:rounded-[20px] 2xl:px-[52px] 2xl:py-[26px] bg-[#F45F17]  text-white 2xl:rounded-[67px]">
-                    <div className="font-bold text-[12px] leading-[16px] md:text-[20px] 2xl:text-[36px] 2xl:leading-[44px] flex items-center gap-[4px] 2xl:gap-3 ">
-                      <div>Rate</div>
-                      <img
-                        src="/images/ChapterPage/Star 3.png"
-                        className="h-[15px] w-[15px] 2xl:h-[48px] 2xl:w-[48px] bg-cover object-cover"
-                        alt=""
-                      />
-                    </div>
-                  </button>
+                  <img
+                    src="/images/ChapterPage/Component 1 (1).png"
+                    alt=""
+                    className="w-[75px] h-[32px] object-cover  bg-center md:hidden"
+                    onClick={handleReadNow}
+                  />
+                  <img
+                    src="/images/ChapterPage/Component 2 (1).png"
+                    alt=""
+                    className="w-[82px] h-[32px] object-cover  bg-center md:hidden"
+                  />
+                  <img
+                    src="/images/ChapterPage/Component 3.png"
+                    alt=""
+                    className="w-[67px] h-[32px] object-cover  bg-center md:hidden"
+                  />
+
+                  <img
+                    src="/images/ChapterPage/Button (2).png"
+                    alt=""
+                    className="btn-chapterDetails"
+                    onClick={handleReadNow}
+                  />
+                  <img
+                    src="/images/ChapterPage/Button (1).png"
+                    alt=""
+                    className="btn-chapterDetails"
+                  />
+                  <img
+                    src="/images/ChapterPage/Button.png"
+                    alt=""
+                    className="btn-chapterDetails"
+                  />
                 </div>
               </div>
             </div>

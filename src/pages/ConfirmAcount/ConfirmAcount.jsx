@@ -1,6 +1,7 @@
 import React from "react";
 import { BsCheckCircleFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
+import "../../assets/css/Acount.css";
 
 const ConfirmAcount = () => {
   const navigate = useNavigate();
@@ -10,17 +11,7 @@ const ConfirmAcount = () => {
   };
 
   return (
-    <div
-      className="bg-cover bg-center h-screen w-[100%] flex items-center justify-center "
-      style={{
-        background: `
-      linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), 
-      linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), 
-      linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), 
-      linear-gradient(2deg, #000 0%, rgba(0, 0, 0, 0.00) 100%),
-      url('/images/Login/slide1.jpg') lightgray 50% / cover no-repeat `,
-      }}
-    >
+    <div className="container-acount">
       <div className=" flex flex-col items-center justify-center rounded-[12px] gap-[31px] py-[60px] px-[15px] bg-[#242424] w-[300px] h-[300px] md:w-[420px] md:h-[546px] md:my-[100px] md:bg-[#242424] md:px-[44px] 2xl:w-[520px] 2xl:h-[746px]  2xl:px-[74px]">
         <div>
           <BsCheckCircleFill className="text-green-500 text-6xl" />

@@ -5,9 +5,7 @@ import "./CommentCard.css";
 const CommentCard = ({ comment }) => {
   const parsedDate = moment(comment?.time_comment, "[Yesterday,] hh:mm A");
   const formattedDate = parsedDate.subtract(1, "days").format("YYYY/MM/DD");
-
-  console.log("formattedDate", formattedDate);
-
+  // console.log("formattedDate", formattedDate);
   return (
     <div className="flex items-start gap-[20px] mt-5">
       <img

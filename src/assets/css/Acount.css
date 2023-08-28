@@ -1,0 +1,33 @@
+.background-acount {
+  background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0.2) 100%
+    ),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%),
+    linear-gradient(2deg, #000 0%, rgba(0, 0, 0, 0) 100%),
+    url("/public/images/Login/slide1.jpg") lightgray 50% / cover no-repeat;
+}
+
+@tailwind components;
+@layer components {
+  .container-acount {
+    @apply bg-cover bg-center h-screen w-[100%] flex items-center justify-center  background-acount;
+  }
+  .wrapper-acount {
+    @apply flex flex-col items-center justify-center rounded-[12px] gap-[31px] py-[60px] px-[15px] md:w-[420px] md:h-[546px] md:my-[100px] md:bg-[#242424] md:px-[44px] 2xl:w-[520px] 2xl:h-[746px]  2xl:px-[74px];
+  }
+  .title-acount {
+    @apply font-semibold text-3xl text-white mb-4;
+  }
+  .noti-acount {
+    @apply text-[14px] leading-[20px] md:text-[24px] md:leading-[28px] font-semibold text-white text-center;
+  }
+  .input-acount {
+    @apply w-full bg-[#353434] h-[44px] rounded-[12px] p-[10px] mb-1 text-white placeholder-white placeholder-opacity-75;
+  }
+  .btn-acount {
+    @apply w-full h-[44px] rounded-[12px] p-[10px] bg-[#EA6016] focus:outline-none hover:bg-[#929292]  border-none;
+  }
+}

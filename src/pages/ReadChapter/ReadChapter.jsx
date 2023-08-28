@@ -68,6 +68,7 @@ const ReadChapter = () => {
   };
 
   const chapterNumbers = sortedChapterList?.map(generateChapterNumber);
+  console.log("chapterNumbers", chapterNumbers);
   useEffect(() => {
     if (sortedChapterList && sortedChapterList?.length > 0) {
       const findChapter = chapterNumbers?.indexOf(id);
@@ -119,12 +120,12 @@ const ReadChapter = () => {
           footer={null}
           className="w-full"
         >
-          <div className="overflow-auto  h-[50vh] grid grid-cols-2 md:grid-cols-4 gap-2 px-3">
+          <div className="overflow-auto  h-[50vh] grid grid-cols-2 md:grid-cols-4 gap-2 px-3 lg:px-5 2xl:px-7">
             {chapterNumbers?.map((chapternumber, index) => (
               <button
                 key={index}
                 onClick={() => handleChooseChapter(chapternumber)}
-                className="border-[#f45f17] border-[1px] px-2 py-1 hover:bg-[#f45f17] hover:text-white hover:duration-200 "
+                className="border-[#f45f17] border-[1px] px-2 py-1 hover:bg-[#f45f17] hover:text-white hover:duration-200  "
               >
                 {chapternumber}
               </button>
