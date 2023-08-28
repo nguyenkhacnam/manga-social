@@ -14,15 +14,10 @@ import "../../assets/css/Acount.css";
 //   credentials: "include", // Bao gồm cookie trong yêu cầu
 // });
 
-// // Add response interceptor outside the component
-// axiosInstance.interceptors.response.use(
-//   function (response) {
-//     return response.data;
-//   },
-//   function (error) {
-//     return Promise.reject(error.response.data);
-//   }
-// );
+const axiosInstance = axios.create({
+  withCredentials: true, // Cho phép gửi và nhận cookie giữa các tên miền khác nhau
+  credentials: "include", // Bao gồm cookie trong yêu cầu
+});
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -43,17 +38,16 @@ const Login = () => {
     setLoading(true);
     console.log("Success:", values);
     try {
-      const response = await axios.post(
+      const response = await axiosInstance.post(
         "http://14.225.7.221:7979/login",
-        values,
-        {
-          headers: {
-            "access-control-allow-origin": "*",
-            "Content-type": "application/json; charset=UTF-8",
-          },
-        }
+        values
+        // {
+        //   headers: {
+        //     "access-control-allow-origin": "*",
+        //     "Content-type": "application/json; charset=UTF-8",
+        //   },
+        // }
       );
-
       if (response && response.data && response.data.account) {
         message.success("Login is successful");
         console.log("response.data.account", response.data.account);
@@ -118,10 +112,20 @@ const Login = () => {
 
   return (
     <Loading isLoading={loading}>
-      <div className="container-acount">
-        <div className="wrapper-acount">
-          <div className="title-acount">Login</div>
-          <div className="noti-acount">
+      <div
+        className="bg-cover bg-center h-screen w-[100%] flex items-center justify-center "
+        style={{
+          background: `
+        linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), 
+        linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), 
+        linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), 
+        linear-gradient(2deg, #000 0%, rgba(0, 0, 0, 0.00) 100%),
+        url('/images/Login/slide1.jpg') lightgray 50% / cover no-repeat `,
+        }}
+      >
+        <div className=" flex flex-col items-center justify-center rounded-[12px] gap-[31px] py-[60px] px-[15px] md:w-[420px] md:h-[546px] md:my-[100px] md:bg-[#242424] md:px-[44px] 2xl:w-[520px] 2xl:h-[746px]  2xl:px-[74px]">
+          <div className="font-semibold text-3xl text-white mb-4">Login</div>
+          <div className="text-[14px] leading-[20px] md:text-[24px] md:leading-[28px] font-semibold text-white text-center">
             You can use your app or account to login
           </div>
 
@@ -146,7 +150,7 @@ const Login = () => {
               <input
                 id="email"
                 name="email"
-                className="input-acount"
+                className="w-full bg-[#353434] h-[44px] rounded-[12px] p-[10px] mb-1 text-white placeholder-white placeholder-opacity-75"
                 placeholder="Enter your email"
               />
             </Form.Item>
@@ -164,7 +168,7 @@ const Login = () => {
                   id="password"
                   name="password"
                   type={showPassword ? "text" : "password"}
-                  className="input-acount"
+                  className="w-full bg-[#353434] h-[44px] rounded-[12px] p-[10px]  mb-1 mt-1 text-white placeholder-white placeholder-opacity-75"
                   placeholder="Password"
                 ></input>
               </Form.Item>
@@ -180,7 +184,7 @@ const Login = () => {
               <Button
                 type="primary"
                 htmlType="submit"
-                className="btn-acount  bg-[#EA6016]"
+                className="w-full h-[44px] rounded-[12px] p-[10px] bg-[#EA6016] focus:outline-none hover:bg-[#929292] border-none "
               >
                 LOG IN
               </Button>
