@@ -56,7 +56,7 @@ export default function Index() {
                 <div className="background-dots"></div>
                 <div className="text-[14px] font-semibold sm:text-[18px] md:text-[24px] lg:text-[50px] flex items-center justify-between px-[16px] pb-[16px] sm:px-[20px] md:px-[25px] ">
                     <h2 className="text-[#FFFFFF]">New Released Comic</h2>
-                    <Link to="/newRelease">
+                    <Link to="/new-release-comics">
                         <p className="text-[#FFFFFF] text-[12px] sm:text-[16px] md:text-[22px] lg:text-[32px] font-semibold ">
                             See all
                         </p>
@@ -69,7 +69,7 @@ export default function Index() {
                 </div>
                 <div className="text-[14px] font-semibold sm:text-[18px] md:text-[24px] lg:text-[50px] flex items-center justify-between px-[16px] pb-[16px] sm:px-[20px] md:px-[25px] ">
                     <h2 className="text-[#FFFFFF]">Recent Comics</h2>
-                    <Link to="/recent">
+                    <Link to="/recent-comics">
                         <p className="text-[#FFFFFF] text-[12px] sm:text-[16px] md:text-[22px] lg:text-[32px] font-semibold ">
                             See all
                         </p>
@@ -78,7 +78,7 @@ export default function Index() {
                 <ComicRecent></ComicRecent>
                 <div className="text-[14px] font-semibold sm:text-[18px] md:text-[24px] lg:text-[50px] flex items-center justify-between px-[16px] pb-[16px] sm:px-[20px] md:px-[25px] ">
                     <h2 className="text-[#FFFFFF]">Recommnended Comics</h2>
-                    <Link to="/recommnended">
+                    <Link to="/recommnended-comics">
                         <p className="text-[#FFFFFF] text-[12px] sm:text-[16px] md:text-[22px] lg:text-[32px] font-semibold ">
                             See all
                         </p>
@@ -98,16 +98,11 @@ export default function Index() {
                     <h2 className="text-[#FFFFFF]">
                         Top 15 Best Comics of the Week
                     </h2>
-                    <Link>
-                        <p className="text-[#FFFFFF] text-[12px] sm:text-[16px] md:text-[22px] lg:text-[32px] font-semibold ">
-                            See all
-                        </p>
-                    </Link>
                 </div>
                 <Top15Comics />
                 <div className="text-[14px] font-semibold sm:text-[18px] md:text-[24px] lg:text-[50px] flex items-center justify-between px-[16px] pb-[16px] sm:px-[20px] md:px-[25px] ">
                     <h2 className="text-[#FFFFFF]">Comedy Comics</h2>
-                    <Link to="/comedy">
+                    <Link to="/comedy-comics">
                         <p className="text-[#FFFFFF] text-[12px] sm:text-[16px] md:text-[22px] lg:text-[32px] font-semibold ">
                             See all
                         </p>
@@ -116,7 +111,7 @@ export default function Index() {
                 <ComedyComics />
                 <div className="text-[14px] font-semibold sm:text-[18px] md:text-[24px] lg:text-[50px] flex items-center justify-between px-[16px] pb-[16px] sm:px-[20px] md:px-[25px] ">
                     <h2 className="text-[#FFFFFF]">Free Comics</h2>
-                    <Link to="freeComics">
+                    <Link to="free-comics">
                         <p className="text-[#FFFFFF] text-[12px] sm:text-[16px] md:text-[22px] lg:text-[32px] font-semibold ">
                             See all
                         </p>
