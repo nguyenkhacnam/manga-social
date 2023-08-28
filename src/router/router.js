@@ -22,6 +22,7 @@ import Page_FreeComics from "../pages/FreeComics/FreeComics";
 import ForgotPassword from "../pages/ForgotPassword/ForgotPassword";
 import ConfirmAcount from "../pages/ConfirmAcount/ConfirmAcount";
 import ReadNews from "../pages/ReadNews/ReadNews";
+import SearchResults from "../pages/SearchResults";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -83,6 +84,10 @@ const router = createBrowserRouter([
             {
                 path: "news/:id",
                 element: <ReadNews />,
+            },
+            {
+              path: "/search",
+              element: <SearchResults />,
             },
         ],
     },

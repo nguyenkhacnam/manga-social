@@ -1,6 +1,6 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { Link, Outlet, json, useLocation } from "react-router-dom";
+
+import { useState } from "react";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import { BiSolidHome, BiSolidNews, BiSolidUser } from "react-icons/bi";
 import { RiSettingsFill } from "react-icons/ri";
 import Search from "../components/search";
@@ -203,7 +203,7 @@ export default function Layout({ home }) {
                     </div>
 
                     <div className="relative pt-3">
-                        <img
+                        {/* <img
                             className="w-[20px] h-[20px] absolute bottom-[5px] sm:bottom-[8px] md:bottom-[11px] left-4"
                             src="/images/search.svg"
                             alt=""
@@ -214,7 +214,8 @@ export default function Layout({ home }) {
                             placeholder="Search..."
                             value={input}
                             onChange={(e) => handleChange(e.target.value)}
-                        ></input>
+                        ></input> */}
+                        <Search />
                     </div>
                 </div>
             </div>
