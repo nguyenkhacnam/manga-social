@@ -10,9 +10,11 @@ const NewsComicCard = ({ poster, time, title, index }) => {
                     alt=""
                 />
             </div>
-            <div className="text-[#FFFFFF] absolute bottom-[8px] left-[8px] lg:bottom-[28px] lg:left-[20px]">
-                <p className="text-[12px] lg:text-[16px]">News, {time}</p>
-                <p className="text-[14px] leading-4 lg:leading-7 lg:text-[24px] font-semibold">
+            <div className="text-[#FFFFFF] absolute bottom-[8px] left-[8px] md:bottom-[20px] md:left-[15px] lg:bottom-[28px] lg:left-[20px]">
+                <p className="text-[12px] md:text-[14px] lg:text-[16px]">
+                    News, {time}
+                </p>
+                <p className="text-[14px] md:text-[18px] md:leading-5 leading-4 lg:leading-7 lg:text-[24px] font-semibold">
                     {title}
                 </p>
             </div>

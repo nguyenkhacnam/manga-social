@@ -130,7 +130,10 @@ const Modal = ({
         await fetch("http://14.225.7.221:7979/user/setting", {
             method: "PATCH",
             headers: {
-                "Content-Type": "multipart/form-data",
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods":
+                    "GET, POST, PUT, DELETE, OPTIONS",
+                "Access-Control-Allow-Headers": "Content-Type, Authorization",
             },
             body: JSON.stringify({
                 name_user: userName,

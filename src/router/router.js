@@ -18,6 +18,7 @@ import ConfirmAcount from "../pages/ConfirmAcount/ConfirmAcount";
 import ReadNews from "../pages/ReadNews/ReadNews";
 import Page_SeeAll from "../pages/PageSeeAll/PageSeeAll";
 import SearchResults from "../pages/SearchResults";
+import ProfilePage from "../pages/ProfilePage/ProfilePage";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -67,8 +68,8 @@ const router = createBrowserRouter([
                 element: <ReadNews />,
             },
             {
-              path: "/search",
-              element: <SearchResults />,
+                path: "/search",
+                element: <SearchResults />,
             },
         ],
     },
@@ -83,6 +84,10 @@ const router = createBrowserRouter([
     {
         path: "/user-profile",
         element: <UserProfile />,
+    },
+    {
+        path: "/user-profile/:id",
+        element: <ProfilePage />,
     },
     {
         path: "/forgot-password",
