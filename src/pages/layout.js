@@ -1,14 +1,29 @@
-
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { BiSolidHome, BiSolidNews, BiSolidUser } from "react-icons/bi";
 import { RiSettingsFill } from "react-icons/ri";
 import Search from "../components/search";
+import { useSelector } from "react-redux";
+import axios from "axios";
 
 export default function Layout({ home }) {
     const [isHovered, setIsHovered] = useState(false);
     const [isServerHovered, setIsServerHovered] = useState(false);
+    const [userData, setUserData] = useState();
     const location = useLocation();
+    const user = useSelector((store) => store.user);
+
+    useEffect(() => {
+        fetchDataNewsPage();
+    }, []);
+
+    const fetchDataNewsPage = async () => {
+        const response = await axios(
+            `http://14.225.7.221:7979/user/${user.id_user}`
+        );
+        const data = response.data;
+        setUserData(data);
+    };
 
     //handle search
     const [input, setInput] = useState("");
@@ -178,13 +193,18 @@ export default function Layout({ home }) {
                                 <div>
                                     <img
                                         className="w-[45px] h-[45px] rounded-[45px]"
-                                        src="/images/naruto.jpg"
+                                        src={`${
+                                            userData?.avatar_user ||
+                                            "/images/naruto.jpg"
+                                        }`}
                                         alt=""
                                     />
                                 </div>
                                 <div className="flex flex-col items-start text-[14px] sm:text-[16px] md:text-[18px] text-[#FFFFFF]">
-                                    <p className="font-semibold">Vu Minh</p>
-                                    <p>12/10/2023</p>
+                                    <p className="font-semibold">
+                                        {userData?.name_user}
+                                    </p>
+                                    <p>{userData?.date_of_birth}</p>
                                 </div>
                             </div>
                         </Link>

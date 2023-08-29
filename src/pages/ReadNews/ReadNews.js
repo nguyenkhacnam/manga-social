@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import CommentNewsCard from "../../components/commentNewsCard";
 
 const ReadNews = () => {
     const { id } = useParams();
     const [dataNewsPage, setDataNewsPage] = useState([]);
+    const commentsPart = useRef(null);
+    const [itemsToShow, setItemToShow] = useState(20);
 
     useEffect(() => {
         fetchDataNewsPage();
@@ -16,6 +18,26 @@ const ReadNews = () => {
         const data = response.data;
         setDataNewsPage(data);
     };
+
+    const scrollComments = () => {
+        window.scrollTo({
+            top: commentsPart.current.offsetTop,
+            behavior: "smooth",
+        });
+    };
+
+    const seeAllHandle = () => {
+        setItemToShow((prev) => {
+            return prev + 5;
+        });
+    };
+
+    const seeLessHandle = () => {
+        setItemToShow((prev) => {
+            return prev - (prev - 20);
+        });
+    };
+
     console.log(dataNewsPage);
     const user_name = dataNewsPage.profile_user_post?.slice(30);
     const num_comments = dataNewsPage?.comment?.length;
@@ -36,7 +58,10 @@ const ReadNews = () => {
                         {dataNewsPage?.time_news}
                     </p>
                     <span className="border-[3px] rounded-full h-full"></span>
-                    <p className="text-[#F45F17] font-semibold text-[15px] sm:text-[18px] md:text-[22px] lg:text-[24px] cursor-pointer hover:text-[#f59362]">
+                    <p
+                        onClick={scrollComments}
+                        className="text-[#F45F17] font-semibold text-[15px] sm:text-[18px] md:text-[22px] lg:text-[24px] cursor-pointer hover:text-[#f59362] scroll-smooth"
+                    >
                         {num_comments} Comments
                     </p>
                 </div>
@@ -49,7 +74,7 @@ const ReadNews = () => {
                 />
             </div>
             <p className="md:text-[22px]">{dataNewsPage?.descript_pro}</p>
-            <div className="">
+            <div ref={commentsPart} className="">
                 <div className="flex items-center justify-between pt-[30px] pb-[15px] border-b-[1px]">
                     <p className="text-white font-semibold text-[18px] sm:text-[18px] md:text-[22px] lg:text-[24px]">
                         Recent Comments
@@ -61,23 +86,37 @@ const ReadNews = () => {
                     </p>
                 </div>
                 <div className="flex flex-col gap-6 pt-[20px]">
-                    {dataNewsPage?.comment?.slice(0, 20)?.map((item, index) => (
-                        <CommentNewsCard
-                            key={index}
-                            avatar_user={item.avatar_user}
-                            content={item.content}
-                            time_comment={item.time_comment}
-                            likes={item.likes}
-                            name_user={item.name_user}
-                            replies={item.replies}
-                        />
-                    ))}
+                    {dataNewsPage?.comment
+                        ?.slice(0, itemsToShow)
+                        ?.map((item, index) => (
+                            <CommentNewsCard
+                                key={index}
+                                avatar_user={item.avatar_user}
+                                content={item.content}
+                                time_comment={item.time_comment}
+                                likes={item.likes}
+                                name_user={item.name_user}
+                                replies={item.replies}
+                            />
+                        ))}
                 </div>
-                <Link>
-                    <p className="text-[#F45F17] text-center pt-[20px] font-semibold text-[15px] sm:text-[18px] md:text-[22px] lg:text-[24px] cursor-pointer hover:text-[#f59362]">
-                        See All
-                    </p>
-                </Link>
+                <div>
+                    {itemsToShow < num_comments && num_comments > 20 ? (
+                        <p
+                            onClick={seeAllHandle}
+                            className="text-[#F45F17] text-center pt-[20px] font-semibold text-[15px] sm:text-[18px] md:text-[22px] lg:text-[24px] cursor-pointer hover:text-[#f59362]"
+                        >
+                            See More 5 Comments
+                        </p>
+                    ) : (
+                        <p
+                            onClick={seeLessHandle}
+                            className="text-[#F45F17] text-center pt-[20px] font-semibold text-[15px] sm:text-[18px] md:text-[22px] lg:text-[24px] cursor-pointer hover:text-[#f59362]"
+                        >
+                            See Less
+                        </p>
+                    )}
+                </div>
             </div>
         </div>
     );

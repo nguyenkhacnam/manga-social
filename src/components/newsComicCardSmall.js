@@ -10,9 +10,11 @@ const NewsComicCardSmall = ({ poster, time, title, index }) => {
                     alt=""
                 />
             </div>
-            <div className="text-[#FFFFFF] lg:pt-[20px]">
-                <p className="text-[11px] lg:text-[16px]">News, {time}</p>
-                <p className="text-[13px] leading-4 lg:leading-7 lg:text-[22px] font-semibold md:w-[200px] lg:w-[300px]">
+            <div className="text-[#FFFFFF] md:pt-[10px] lg:pt-[20px]">
+                <p className="text-[11px] md:text-[13px] lg:text-[16px]">
+                    News, {time}
+                </p>
+                <p className="text-[13px] md:text-[16px] md:leading-5 leading-4 lg:leading-7 lg:text-[22px] font-semibold md:w-[200px] lg:w-[300px]">
                     {title}
                 </p>
             </div>
