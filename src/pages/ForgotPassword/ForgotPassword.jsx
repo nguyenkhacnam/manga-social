@@ -3,10 +3,12 @@ import { Button, Form } from "antd";
 import axios from "axios";
 import * as message from "../../components/Message/Message";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const ForgotPassword = () => {
   const [showPassword, setShowPassword] = useState(false);
-
+  const user = useSelector((store) => store.user);
+  console.log("user", user);
   const navigate = useNavigate();
 
   const toggleShowPassword = () => {
@@ -14,15 +16,22 @@ const ForgotPassword = () => {
   };
 
   const onFinish = async (values) => {
+    const { new_password, confirm_password, ...restValues } = values;
+
+    if (new_password !== confirm_password) {
+      message.error("Passwords do not match.");
+      return;
+    }
+
     console.log("Success:", values);
     try {
-      const response = await axios.post(
-        "http://14.225.7.221:7979/register",
+      const response = await axios.patch(
+        "http://14.225.7.221:7979/forgot-password",
         values
       );
-      message.success("Signup is successfully");
+      message.success("A link has been sent to your email ");
       console.log(response);
-      navigate("/login1");
+      navigate("/confirm-acount");
     } catch (error) {
       message.error(`${error.response.data.message}`);
     }
@@ -69,15 +78,22 @@ const ForgotPassword = () => {
 
   return (
     <div
-      className="bg-cover bg-center h-[100vh] w-[100vw] md:h-[100%] md:w-[100%] flex items-center justify-center "
+      className="bg-cover bg-center h-screen w-[100%] flex items-center justify-center "
       style={{
-        backgroundImage: "url('/images/Login/slide1.jpg')",
+        background: `
+      linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), 
+      linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), 
+      linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), 
+      linear-gradient(2deg, #000 0%, rgba(0, 0, 0, 0.00) 100%),
+      url('/images/Login/slide1.jpg') lightgray 50% / cover no-repeat `,
       }}
     >
-      <div className=" flex flex-col items-center justify-center md:w-[520px] md:h-[746px] rounded-[12px] gap-[31px] md:bg-[#242424] mt-[20px] md:mt-[100px] md:mb-[100px] px-[15px] md:px-[74px] py-[60px]">
-        <div className="font-semibold text-3xl text-white mb-4">SignUp</div>
+      <div className=" flex flex-col items-center justify-center rounded-[12px] gap-[31px] py-[60px] px-[15px] md:w-[420px] md:h-[546px] md:my-[100px] md:bg-[#242424] md:px-[44px] 2xl:w-[520px] 2xl:h-[746px]  2xl:px-[74px]">
+        <div className="font-semibold text-3xl text-white mb-4">
+          Forgot Password
+        </div>
         <div className=" text-[14px] leading-[20px] md:text-[24px] md:leading-[28px] font-semibold text-white text-center">
-          Create a new accont our you can log in
+          A link with code to reset your password has been sent to your email.
         </div>
         <Form
           name="basic"
@@ -87,7 +103,7 @@ const ForgotPassword = () => {
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
           autoComplete="off"
-          className=" w-[327px] md:w-full "
+          className=" w-[328px] md:w-full "
         >
           <Form.Item
             name="email"
@@ -107,7 +123,7 @@ const ForgotPassword = () => {
 
           <div className="relative ">
             <Form.Item
-              name="password"
+              name="new_password"
               rules={[
                 {
                   validator: validatePassword, // Add this validator for password
@@ -115,11 +131,35 @@ const ForgotPassword = () => {
               ]}
             >
               <input
-                id="password"
-                name="password"
+                id="new_password"
+                name="new_password"
                 type={showPassword ? "text" : "password"}
                 className=" w-full bg-[#353434] h-[44px] rounded-[12px] p-[10px]  mb-1 mt-1 text-white placeholder-white placeholder-opacity-75"
                 placeholder="Password"
+              ></input>
+            </Form.Item>
+            <img
+              src="/images/Login/icon.png"
+              className="h-[24px] w-[24px] absolute top-3 right-3 cursor-pointer"
+              alt=""
+              onClick={toggleShowPassword}
+            />
+          </div>
+          <div className="relative ">
+            <Form.Item
+              name="confirm_password"
+              rules={[
+                {
+                  validator: validatePassword, // Add this validator for password
+                },
+              ]}
+            >
+              <input
+                id="confirm_password"
+                name="confirm_password"
+                type={showPassword ? "text" : "password"}
+                className=" w-full bg-[#353434] h-[44px] rounded-[12px] p-[10px]  mb-1 mt-1 text-white placeholder-white placeholder-opacity-75"
+                placeholder="Confirm Password"
               ></input>
             </Form.Item>
             <img
@@ -136,30 +176,10 @@ const ForgotPassword = () => {
               htmlType="submit"
               className="w-full h-[44px] rounded-[12px] p-[10px] bg-[#EA6016] focus:outline-none hover:bg-[#929292]  border-none "
             >
-              Sign Up
+              Send
             </Button>
           </Form.Item>
         </Form>
-        <div className="flex items-center justify-center gap-0.5  ">
-          <div className="font-semibold text-[12px] leading-[16px] md:text-[16px] md:leading-[24px] text-white ">
-            By selecting “ SIGN IN”, you agree to
-          </div>
-          <div className="font-semibold text-[12px] leading-[16px] md:text-[16px] md:leading-[24px] text-[#EA6016] ">
-            OUR POLICIES
-          </div>
-        </div>
-
-        <div className="flex items-center justify-center gap-1.5 mt-40 md:mt-0">
-          <div className="font-semibold text-[16px] leading-[24px] text-[#747474] ">
-            Already have an account?
-          </div>
-          <div
-            className="font-semibold text-[16px] leading-[24px] text-[#EA6016] "
-            onClick={HandleNavigateToLogin}
-          >
-            Log in
-          </div>
-        </div>
       </div>
     </div>
   );

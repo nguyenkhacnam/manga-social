@@ -79,6 +79,10 @@ const Login = () => {
     navigate("/sign-up");
   };
 
+  const handleForgotPassword = () => {
+    navigate("/forgot-password");
+  };
+
   return (
     <Loading isLoading={loading}>
       <div
@@ -161,7 +165,10 @@ const Login = () => {
           </Form>
 
           <div className="flex flex-col gap-[200px] md:gap-[20px] ">
-            <div className="font-semibold text-[16px] leading-[24px] text-center text-[#EA6016] cursor-pointer">
+            <div
+              className="font-semibold text-[16px] leading-[24px] text-center text-[#EA6016] cursor-pointer"
+              onClick={handleForgotPassword}
+            >
               Forgot Password?
             </div>
 
