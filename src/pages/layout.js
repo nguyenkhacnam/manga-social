@@ -17,13 +17,22 @@ export default function Layout({ home }) {
         fetchDataNewsPage();
     }, []);
 
+    // const fetchDataNewsPage = async () => {
+    //     const response = await axios(
+    //         `http://14.225.7.221:7979/user/${user.id_user}`
+    //     );
+    //     const data = response.data;
+    //     setUserData(data);
+    // };
     const fetchDataNewsPage = async () => {
-        const response = await axios(
-            `http://14.225.7.221:7979/user/${user.id_user}`
-        );
-        const data = response.data;
-        setUserData(data);
+      try {
+        const response = await axios.get(`http://14.225.7.221:7979/user/${user.id_user}`);
+        setUserData(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
     };
+    
 
     //handle search
     const [input, setInput] = useState("");
