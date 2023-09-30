@@ -14,10 +14,10 @@ import "../../assets/css/Acount.css";
 //   credentials: "include", // Bao gồm cookie trong yêu cầu
 // });
 
-const axiosInstance = axios.create({
-  withCredentials: true, // Cho phép gửi và nhận cookie giữa các tên miền khác nhau
-  credentials: "include", // Bao gồm cookie trong yêu cầu
-});
+// const axiosInstance = axios.create({
+//   withCredentials: true, // Cho phép gửi và nhận cookie giữa các tên miền khác nhau
+//   credentials: "include", // Bao gồm cookie trong yêu cầu
+// });
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -38,7 +38,7 @@ const Login = () => {
     setLoading(true);
     console.log("Success:", values);
     try {
-      const response = await axiosInstance.post(
+      const response = await axios.post(
         "http://14.225.7.221:7979/login",
         values
         // {
