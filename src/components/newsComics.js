@@ -13,9 +13,9 @@ const NewsComics = () => {
                 {dataSlice?.map((item, index) => {
                     if (index % 2 !== 0) {
                         return (
-                            <Link to={`news/${index}`}>
+                            <Link to={`news/${index}`} key={index}>
                                 <NewsComicCard
-                                    key={index}
+                                    // key={index}
                                     index={index}
                                     poster={item.images_poster}
                                     time={item.time_news}

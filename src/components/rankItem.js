@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const RankItem = ({ rank, categories, title, poster }) => {
-    const title_manga_path = title.replaceAll(" ", "-").toLowerCase();
+    const title_manga_path = title?.replaceAll(" ", "-").toLowerCase();
     return (
         <Link to={`/chapter/${title_manga_path}`}>
             <div className="flex items-center px-[10px] py-[6px] w-full lg:px-[20px] lg:py-[12px] bg-[#2C2C2C] rounded-[20px] lg:w-auto gap-5">

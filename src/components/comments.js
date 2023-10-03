@@ -11,7 +11,7 @@ const Comments = () => {
             {comments?.map((item, index) => (
                 <CommentCard
                     key={index}
-                    avatar_user={item.avatar_user}
+                    avatar_user={item?.avatar_user}
                     content={item.content}
                     name_user={item.name_user}
                     time={item.time_comment}

@@ -14,7 +14,7 @@ const NewUsers = () => {
                 {newUsers?.map((user, index) => (
                     <UserCard
                         key={index}
-                        avatar={user.avatar_user}
+                        avatar={user?.avatar_user}
                         name={user.name_user}
                         time={user.participation_time}
                     />

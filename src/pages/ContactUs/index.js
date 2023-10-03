@@ -1,7 +1,7 @@
-import axios from "axios";
+// import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
-import MangaComments from "../../components/MangaComments";
+// import MangaComments from "../../components/MangaComments";
 function ContactUs() {
     const [image, setImage] = useState(null);
     const [userId, setUserId] = useState("");
@@ -28,7 +28,7 @@ function ContactUs() {
                     const data = await response.json();
                     const userData = data.PROFILES;
                     // console.log(userData)
-                    setImage(userData.avatar_user);
+                    setImage(userData?.avatar_user);
                     setJoin(userData.participation_time);
                     setUserId(idUser);
                 }

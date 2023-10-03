@@ -5,7 +5,7 @@ import { useEffect } from "react";
 function MangaComments() {
   const [image, setImage] = useState(null);
   const [comments, setComments] = useState([]);
-  const [userImages, setUserImages] = useState({});
+  // const [userImages, setUserImages] = useState({});
   useEffect(() => {
     axios.get("http://14.225.7.221:7979/manga/Prunus+Girl").then((res) => {
       console.log("res.data", res.data);
@@ -35,7 +35,7 @@ function MangaComments() {
           const data = await response.json();
           const userData = data.PROFILES;
 
-          setImage(userData.avatar_user);
+          setImage(userData?.avatar_user);
         }
       } catch (error) {
         console.error("Error fetching user data:", error);

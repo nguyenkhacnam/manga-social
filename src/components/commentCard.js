@@ -11,7 +11,7 @@ const CommentCard = ({
     count_comment,
     count_reply_comment,
 }) => {
-    const title_manga_path = title_manga.replaceAll(" ", "-").toLowerCase();
+    const title_manga_path = title_manga?.replaceAll(" ", "-").toLowerCase();
 
     return (
         <div className="text-[#FFFFFF] flex flex-col gap-[8px] pb-5 md:pb-7 lg:pb-11">

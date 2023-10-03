@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import ComicRecent from "../../components/comicRecent";
 import { useEffect, useState } from "react";
 import HeaderMobile from "../../components/HeaderMobile";
-import Page_Recent from "../Recent/Recent";
+// import Page_Recent from "../Recent/Recent";
 import Modal from "../../components/modal";
 
 function UserProfile() {
@@ -32,13 +32,13 @@ function UserProfile() {
 
                 if (response.ok) {
                     const data = await response.json();
-                    const userData = data.PROFILES;
+                    // const userData = data.PROFILES;
                     console.log("users: ", data);
-                    setImage(userData.avatar_user);
-                    setYear(userData.year_birth);
-                    setUserNam(userData.name_user);
-                    setIntroduction(userData.introduction);
-                    setSex(userData.sex);
+                    setImage(data?.avatar_user);
+                    setYear(data?.date_of_birth);
+                    setUserNam(data?.name_user);
+                    setIntroduction(data?.introduction);
+                    setSex(data?.gender);
                 }
             } catch (error) {
                 console.error("Error fetching user data:", error);
